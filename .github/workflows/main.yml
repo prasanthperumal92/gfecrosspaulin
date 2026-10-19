@@ -1,0 +1,82 @@
+name: Build brochure PDF and release
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "brochure/index.html"
+      - "brochure/styles.css"
+      - "brochure/assets/**"
+      - "brochure/tools/**"
+      - "docs/packinglist.html"
+      - ".github/workflows/main.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: brochure-release
+  cancel-in-progress: false
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    env:
+      PDF: output/crosspaulin-export-brochure.pdf
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install poppler-utils
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Set up Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Render PDF
+        env:
+          CHROME: ${{ steps.chrome.outputs.chrome-path }}
+        run: brochure/tools/render.sh
+
+      - name: Verify PDF
+        run: |
+          info="$(pdfinfo "$PDF")"
+          echo "$info"
+          pages=$(awk '/^Pages:/ {print $2}' <<<"$info")
+          bytes=$(stat -c %s "$PDF")
+          [ "$pages" -eq 8 ] || { echo "::error::Expected 8 pages, got $pages"; exit 1; }
+          [ "$bytes" -lt 10485760 ] || { echo "::error::PDF is $bytes bytes (limit 10 MB)"; exit 1; }
+          grep -qE '^Page size:.*\(A4\)' <<<"$info" || { echo "::error::Page size is not A4"; exit 1; }
+          if grep -niE "malson|CM/L|IN122639|₹|/kg" brochure/index.html; then
+            echo "::error::Internal or manufacturer-only details found in brochure/index.html"; exit 1
+          fi
+          if grep -n TBC brochure/index.html; then
+            echo "::warning::Brochure still contains [TBC] markers"
+          fi
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: crosspaulin-export-brochure
+          path: |
+            ${{ env.PDF }}
+            brochure/review/pages/*.png
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="brochure-$(date -u +%Y.%m.%d)-${GITHUB_RUN_NUMBER}"
+          gh release create "$tag" "$PDF" \
+            --target "$GITHUB_SHA" \
+            --title "Crosspaulin export brochure ($(date -u +%Y-%m-%d), build ${GITHUB_RUN_NUMBER})" \
+            --notes "8-page A4 brochure rendered from ${GITHUB_SHA::7}.
+
+          $(git log -1 --pretty=format:'Latest change: %s')"
