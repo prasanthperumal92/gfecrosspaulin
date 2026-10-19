@@ -21,5 +21,7 @@ Accessed 2026-10-18/19. Each KB page cites these IDs.
 | S9 | https://www.globallinker.com/products/pankaj-brand-multilayered-micropaulin-ldpe-8326933 | Marketplace listing | Low |
 | S10 | `images/`: owner-supplied product photos | Owner-supplied | High for what is pictured |
 | S11 | https://www.graceferroexports.com/images/logo.png | Exporter logo | High |
+| S12 | `docs/INFORMATION SHEET.pdf`: "Crosspaulin – Export Technical Information Request", 3 pages on Malsons Polymers Ltd letterhead (scanned 2026-09-02, image-only) | Manufacturer declaration | High; manufacturer-declared, not a test report |
+| S13 | `docs/ISO 9001-2015.pdf`: ISO 9001:2015 certificate IN122639A, Malsons Polymers Ltd | Certificate | High |
 
-Searched but not found: any official Crosspaulin datasheet or manufacturer website.
+S12 is the manufacturer's datasheet. Where it conflicts with the website (S5), S12 wins for product facts.

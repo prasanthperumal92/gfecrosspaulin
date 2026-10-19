@@ -132,6 +132,11 @@ table { border-collapse: collapse; width: 100%; }
 .spec td { text-align: center; color: var(--muted); }
 .spec td[colspan] { text-align: center; }
 .spec tbody tr:nth-child(even) { background: #FAFBFD; }
+.spec.kv { margin-top: 4mm; font-size: 8.5pt; }
+.spec.kv th, .spec.kv td { padding: 1.5mm 3mm; }
+.spec.kv tbody th { width: 52mm; }
+.spec.kv td { text-align: left; }
+.spec.kv tr.grp th { background: var(--tint); color: var(--blue); font: 700 8.5pt Montserrat, sans-serif; text-transform: uppercase; letter-spacing: .05em; padding-top: 2mm; }
 .ref { margin-top: 7mm; border-left: 3px solid var(--orange); padding: 1mm 0 1mm 5mm; }
 .ref h3 { font-size: 10.5pt; margin-bottom: 2mm; }
 .ref table { font-size: 8.5pt; width: auto; }

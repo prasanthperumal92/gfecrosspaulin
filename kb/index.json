@@ -26,26 +26,25 @@
   },
   {
     "id": "KB-02",
-    "title": "Manufacturer, PANKAJ®",
+    "title": "Manufacturer, Malsons Polymers Ltd (PANKAJ®)",
     "tags": [
       "manufacturer",
       "pankaj",
+      "malsons",
       "brand",
       "trademark"
     ],
     "updated": "2026-10-19",
     "file": "manufacturer.md",
     "headings": [
-      "Unverified lead (do not publish)",
+      "Disclosure rule (owner decision, 2026-10-19)",
       "Trademark rules"
     ],
     "sources": [
-      "S1",
-      "S8",
-      "S9",
-      "S10"
+      "S12",
+      "S13"
     ],
-    "summary": "Web listings tie the **Pankaj** tarpaulin brand to **Malsons Polymers Limited**, Kolkata, West Bengal (GST 19AABCM9941J1ZZ). They make LLDPE film, multilayer tarpaulin, shade net and mulching film, and one listing claims ISO 9001:2008 and 20,000 TPA capacity (S8, S9). Founding years conflict across listings (1995 / 2004 / 2018)."
+    "summary": "Confirmed by the manufacturer's information sheet on Malsons letterhead (S12) and its ISO certificate (S13)."
   },
   {
     "id": "KB-03",
@@ -65,7 +64,9 @@
     "sources": [
       "S1",
       "S5",
-      "S10"
+      "S10",
+      "S12",
+      "S13"
     ],
     "summary": "A tarpaulin made by bonding oriented polyethylene film layers at crossed angles into one sheet. An ordinary tarpaulin is woven from flat HDPE tapes and then coated. Cross-lamination spreads strength in more than one direction and leaves no weave to fray or leak. The surface has a fine crossed texture (photo: `images/crosspaulin_cross_braid.jpeg`)."
   },
@@ -78,30 +79,41 @@
       "colours",
       "thickness",
       "tensile",
-      "rolls"
+      "rolls",
+      "eyelets",
+      "weathering"
     ],
     "updated": "2026-10-19",
     "file": "specifications.md",
     "headings": [
-      "Range beyond the four standard grades",
+      "Material",
+      "Range",
+      "Mechanical (declared for all grades)",
+      "Weathering",
+      "Waterproofing",
+      "Fabrication",
       "Certification"
     ],
     "sources": [
-      "S1",
       "S2",
       "S5",
       "S6",
-      "S10"
+      "S10",
+      "S12",
+      "S13"
     ],
-    "summary": ""
+    "summary": "Primary source: the manufacturer's export technical information sheet (S12). It gives one set of values for all grades, not per-grade figures."
   },
   {
     "id": "KB-05",
-    "title": "Indian standard IS 14611",
+    "title": "Standards and certification (IS 14611, BIS, ISO 9001)",
     "tags": [
       "standard",
       "BIS",
       "IS 14611",
+      "IS 7016",
+      "ISO 9001",
+      "certification",
       "tensile",
       "elongation",
       "duty class"
@@ -109,14 +121,19 @@
     "updated": "2026-10-19",
     "file": "standards.md",
     "headings": [
-      "Duty classes (by GSM)",
+      "Crosspaulin certification (S12, S13)",
+      "IS 14611, multilayered cross-laminated tarpaulins",
+      "Duty classes (by GSM, per the 2016 revision; check against 2024)",
       "Minimum requirements (secondary source S6; verify against the BIS text)"
     ],
     "sources": [
       "S6",
-      "S7"
+      "S7",
+      "S10",
+      "S12",
+      "S13"
     ],
-    "summary": "Full title: \"Multilayered cross laminated sheets/tarpaulins/covers/agricultural films – Specification (First Revision)\" (S7)."
+    "summary": "Owner decision (2026-10-19): the brochure states the certifications but not the licence or certificate numbers, because they identify the manufacturer."
   },
   {
     "id": "KB-06",
@@ -129,13 +146,19 @@
       "ports",
       "container",
       "samples",
-      "MOQ"
+      "MOQ",
+      "HS code",
+      "private label"
     ],
     "updated": "2026-10-19",
     "file": "export-terms.md",
-    "headings": [],
+    "headings": [
+      "Buyer-facing terms (used in the brochure)",
+      "Internal: manufacturer terms to Grace Ferro (never publish)"
+    ],
     "sources": [
-      "S5"
+      "S5",
+      "S12"
     ],
     "summary": ""
   },
@@ -259,9 +282,14 @@
     ],
     "updated": "2026-10-19",
     "file": "open-questions.md",
-    "headings": [],
-    "sources": [],
-    "summary": ""
+    "headings": [
+      "Resolved by the manufacturer's information sheet (S12, 2026-10-19)"
+    ],
+    "sources": [
+      "S1",
+      "S12"
+    ],
+    "summary": "Tensile, elongation and tear basis; eyelet type and spacing; MOQ (24 MT); yellow and natural are standard colours; BIS licence under IS 14611:2024; the manufacturer is Malsons Polymers Ltd; custom sizes, colours and private labels are available."
   },
   {
     "id": "KB-13",
@@ -285,7 +313,9 @@
       "S8",
       "S9",
       "S10",
-      "S11"
+      "S11",
+      "S12",
+      "S13"
     ],
     "summary": "Accessed 2026-10-18/19. Each KB page cites these IDs."
   }
