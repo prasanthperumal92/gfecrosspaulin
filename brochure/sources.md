@@ -55,6 +55,6 @@ MOQ 24 MT (S12, owner decision); private labelling, custom printing, colours and
 
 54 cut sizes and pack quantities from S2. Metres are computed (ft × 0.3048, rounded to 0.1 m).
 
-## Still [TBC]
+## Still open
 
-Which grade is 0.10 mm and which is 0.12 mm, and the unit of the packing-list quantities. See [`kb/open-questions.md`](../kb/open-questions.md).
+No [TBC] items remain in the brochure. Pack quantities are pieces per bundle and thickness is by grade (owner, 2026-10-19). Other questions are in [`kb/open-questions.md`](../kb/open-questions.md).

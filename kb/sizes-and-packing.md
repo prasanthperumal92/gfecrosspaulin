@@ -6,10 +6,10 @@ updated: 2026-10-19
 ---
 # Standard cut sizes and packing quantities
 
-There are 54 standard cut sizes (S2). The quantity columns are per GSM grade; their **unit is [TBC]** (pieces per bale, bundle or carton?).
+There are 54 standard cut sizes (S2). The quantity columns are per GSM grade; the unit is **pieces per bundle** (owner, 2026-10-19).
 Metres and areas are computed (1 ft = 0.3048 m).
 
-| # | Size (ft) | Size (m) | Area (m²) | 90 GSM | 120 GSM | 150 GSM | 200 GSM |
+| # | Size (ft) | Size (m) | Area (m²) | 90 GSM (pcs/bundle) | 120 GSM (pcs/bundle) | 150 GSM (pcs/bundle) | 200 GSM (pcs/bundle) |
 |---|---|---|---|---|---|---|---|
 | 1 | 6' x 4' | 1.83 × 1.22 | 2.2 | 50 | 50 | 50 | 50 |
 | 2 | 6' x 6' | 1.83 × 1.83 | 3.3 | 50 | 40 | 30 | 25 |

@@ -26,7 +26,7 @@ def metres(size):
 
 def table(chunk):
     out = ['    <table class="sizes">',
-           '      <thead><tr class="sup"><th colspan="3"></th><th colspan="4">Qty per pack, by GSM</th></tr>',
+           '      <thead><tr class="sup"><th colspan="3"></th><th colspan="4">Pieces per bundle, by GSM</th></tr>',
            '      <tr><th>#</th><th>Size (ft)</th><th>Size (m)</th><th>90</th><th>120</th><th>150</th><th>200</th></tr></thead>',
            '      <tbody>']
     for no, size, *q in chunk:

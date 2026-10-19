@@ -200,7 +200,7 @@
       "S2",
       "S5"
     ],
-    "summary": "There are 54 standard cut sizes (S2). The quantity columns are per GSM grade; their **unit is [TBC]** (pieces per bale, bundle or carton?)."
+    "summary": "There are 54 standard cut sizes (S2). The quantity columns are per GSM grade; the unit is **pieces per bundle** (owner, 2026-10-19)."
   },
   {
     "id": "KB-09",

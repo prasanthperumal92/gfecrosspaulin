@@ -14,7 +14,7 @@ Primary source: the manufacturer's export technical information sheet (S12). It 
 | GSM tolerance | ±5% | | | | S12 |
 | IS 14611 duty band | Light (LN) | Medium (MN) | Medium (MN) | Heavy (HN) | S6 |
 | Colour pictured | Natural / transparent | Green (blue edge) | Blue | Black / silver | S10 |
-| Thickness | 0.10 mm and 0.12 mm listed; which grade is which is [TBC] | | | | S12 |
+| Thickness | 0.10 mm or 0.12 mm, by grade (owner, 2026-10-19; exact per-grade mapping not given) | | | | S12 |
 
 ## Material
 - Product name: cross-laminated multi-layer tarpaulin; "A product of PANKAJ" (S12).
