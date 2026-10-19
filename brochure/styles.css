@@ -1,0 +1,186 @@
+@font-face { font-family: Montserrat; font-weight: 600; src: url(assets/fonts/montserrat-600.woff2) format("woff2"); }
+@font-face { font-family: Montserrat; font-weight: 700; src: url(assets/fonts/montserrat-700.woff2) format("woff2"); }
+@font-face { font-family: Montserrat; font-weight: 800; src: url(assets/fonts/montserrat-800.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 400; src: url(assets/fonts/inter-400.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 500; src: url(assets/fonts/inter-500.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 600; src: url(assets/fonts/inter-600.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 700; src: url(assets/fonts/inter-700.woff2) format("woff2"); }
+
+/* Brand colours sampled from the Crosspaulin logo */
+:root {
+  --blue: #234997;
+  --blue-dark: #162F66;
+  --orange: #DE8225;
+  --red: #E31D24;
+  --ink: #111827;
+  --muted: #4B5563;
+  --line: #E5E7EB;
+  --tint: #F3F6FC;
+}
+
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font: 400 10pt/1.5 Inter, sans-serif; color: var(--ink); background: #888; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.page {
+  position: relative; width: 210mm; height: 297mm; overflow: hidden;
+  background: #fff; margin: 0 auto; page-break-after: always; break-after: page;
+  padding: 18mm 16mm 20mm;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+@media screen { .page { margin: 10mm auto; box-shadow: 0 2px 12px rgba(0,0,0,.25); } }
+
+h1, h2, h3 { font-family: Montserrat, sans-serif; margin: 0; letter-spacing: -.01em; }
+h2 { font-size: 22pt; font-weight: 800; color: var(--blue); line-height: 1.15; }
+h3 { font-size: 12pt; font-weight: 700; color: var(--ink); }
+p { margin: 0 0 3mm; }
+.kicker { font: 700 8pt/1 Montserrat, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 3mm; }
+.lead { font-size: 11.5pt; line-height: 1.55; color: var(--muted); }
+.muted { color: var(--muted); }
+.small { font-size: 8.5pt; line-height: 1.45; color: var(--muted); }
+.tbc { background: #FEF3C7; color: #92400E; border-radius: 2px; padding: 0 3px; font-weight: 600; font-size: .9em; white-space: nowrap; }
+
+/* footer on inner pages */
+.foot {
+  position: absolute; left: 16mm; right: 16mm; bottom: 9mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8pt; color: #6B7280; border-top: 1px solid var(--line); padding-top: 2.5mm;
+}
+.foot img { height: 6mm; }
+.stripe-bar { position: absolute; left: 0; right: 0; top: 0; height: 4mm;
+  background: repeating-linear-gradient(-55deg, var(--blue) 0 7mm, var(--blue-dark) 7mm 14mm); }
+
+/* ---------- cover ---------- */
+.cover { padding: 0; background: var(--blue); color: #fff; }
+.cover .hero { position: absolute; inset: 0 0 auto 0; height: 168mm; background: url(assets/cover-hero.jpg) center 70% / cover; }
+.cover .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(22,47,102,.55) 100%); }
+.cover .exporter { position: absolute; top: 10mm; left: 12mm; background: #fff; border-radius: 3mm; padding: 2.5mm 4mm; z-index: 2; }
+.cover .exporter img { height: 11mm; display: block; }
+.cover .band {
+  position: absolute; left: 0; right: 0; top: 168mm; bottom: 0;
+  background:
+    repeating-linear-gradient(-55deg, rgba(255,255,255,.035) 0 9mm, rgba(255,255,255,0) 9mm 18mm),
+    var(--blue);
+  padding: 30mm 16mm 0;
+}
+.cover .logo-card {
+  position: absolute; left: 16mm; top: 146mm; z-index: 3;
+  background: #fff; border-radius: 4mm; padding: 6mm 8mm; box-shadow: 0 6px 20px rgba(0,0,0,.25);
+}
+.cover .logo-card img { width: 70mm; display: block; }
+.cover h1 { font-size: 30pt; font-weight: 800; line-height: 1.08; max-width: 150mm; }
+.cover h1 span { color: var(--orange); }
+.cover .sub { font-size: 12pt; line-height: 1.5; margin-top: 5mm; max-width: 150mm; color: #DCE4F5; }
+.cover .gsm-row { display: flex; gap: 3mm; margin-top: 8mm; }
+.cover .gsm-row div { border: 1.2px solid rgba(255,255,255,.5); border-radius: 2mm; padding: 2mm 4mm; font: 700 11pt Montserrat, sans-serif; }
+.cover .gsm-row small { font: 500 7.5pt Inter, sans-serif; opacity: .8; margin-left: 1mm; }
+.cover .bottom { position: absolute; left: 16mm; right: 16mm; bottom: 10mm; display: flex; justify-content: space-between; font-size: 8.5pt; color: #C7D2EC; }
+
+/* ---------- about ---------- */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 9mm; }
+.reg-list { display: flex; flex-wrap: wrap; gap: 1.8mm; margin: 2mm 0 4mm; padding: 0; list-style: none; }
+.reg-list li { background: var(--tint); color: var(--blue); border-radius: 1.5mm; padding: 1mm 2.6mm; font-size: 8pt; font-weight: 600; }
+.tech { display: grid; grid-template-columns: 1fr 50mm; gap: 8mm; align-items: center; margin-top: 4mm; }
+.diagram svg, .flow svg { width: 100%; height: auto; display: block; }
+.macro img { width: 50mm; height: 70mm; object-fit: cover; border-radius: 3mm; display: block; margin-bottom: 3mm; }
+.macro h3 { font-size: 10pt; }
+.macro p { font-size: 8.5pt; }
+.divider { height: 1px; background: var(--line); margin: 8mm 0 7mm; }
+
+/* ---------- advantages ---------- */
+.big-claim { display: grid; grid-template-columns: 52mm 1fr; gap: 8mm; align-items: center; background: var(--blue); color: #fff; border-radius: 4mm; padding: 10mm 9mm; margin: 7mm 0 9mm; }
+.big-claim .num { font: 800 64pt/0.9 Montserrat, sans-serif; color: #fff; }
+.big-claim .num span { color: var(--orange); }
+.big-claim h3 { color: #fff; font-size: 14pt; margin-bottom: 2mm; }
+.big-claim p { color: #DCE4F5; margin: 0; }
+.adv { display: grid; grid-template-columns: 1fr 1fr; gap: 12mm 9mm; margin-top: 4mm; }
+.adv .item { display: grid; grid-template-columns: 13mm 1fr; gap: 4mm; align-items: start; }
+.adv img { width: 13mm; height: 13mm; padding: 2mm; background: var(--tint); border-radius: 3mm; }
+.adv h3 { font-size: 11pt; margin: .5mm 0 1.2mm; }
+.adv p { font-size: 9.5pt; color: var(--muted); margin: 0; }
+
+/* ---------- grades ---------- */
+.grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin-top: 7mm; }
+.grade { border: 1px solid var(--line); border-radius: 3mm; overflow: hidden; }
+.grade img { width: 100%; height: 80mm; object-fit: cover; display: block; }
+.grade .body { padding: 3.5mm 3.5mm 4mm; }
+.grade .gsm { font: 800 17pt/1 Montserrat, sans-serif; color: var(--blue); }
+.grade .gsm small { font-size: 8pt; font-weight: 700; color: var(--muted); margin-left: .6mm; }
+.grade .duty { display: inline-block; margin: 2mm 0 1.5mm; font-size: 7.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; border-radius: 1mm; padding: .6mm 2mm; }
+.duty.light { background: #6B9BD8; } .duty.medium { background: var(--blue); } .duty.heavy { background: var(--blue-dark); }
+.grade p { font-size: 8.5pt; color: var(--muted); margin: 0; }
+.also { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 8mm; }
+.also .box { background: var(--tint); border-radius: 3mm; padding: 5mm 6mm; }
+.also .box h3 { font-size: 10.5pt; margin-bottom: 2mm; color: var(--blue); }
+.also .box p { font-size: 9pt; margin: 0; }
+.swatches { display: flex; gap: 2mm; margin-top: 3mm; }
+.swatches span { width: 7mm; height: 7mm; border-radius: 50%; border: 1px solid rgba(0,0,0,.12); }
+.pack-photos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin-top: 8mm; }
+.pack-photos img { width: 100%; height: 40mm; object-fit: cover; border-radius: 3mm; }
+.pack-photos img:last-child { object-fit: contain; background: #fff; border: 1px solid var(--line); }
+.swatches span.tbc-sw { border: 1.5px dashed #92400E; }
+
+/* ---------- tables ---------- */
+table { border-collapse: collapse; width: 100%; }
+.spec { margin-top: 6mm; font-size: 9pt; }
+.spec th, .spec td { padding: 2.4mm 3mm; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.spec thead th { background: var(--blue); color: #fff; font: 700 9.5pt Montserrat, sans-serif; text-align: center; }
+.spec thead th:first-child { text-align: left; border-top-left-radius: 2mm; }
+.spec thead th:last-child { border-top-right-radius: 2mm; }
+.spec tbody th { font-weight: 600; color: var(--ink); width: 40mm; }
+.spec td { text-align: center; color: var(--muted); }
+.spec td[colspan] { text-align: center; }
+.spec tbody tr:nth-child(even) { background: #FAFBFD; }
+.ref { margin-top: 7mm; border-left: 3px solid var(--orange); padding: 1mm 0 1mm 5mm; }
+.ref h3 { font-size: 10.5pt; margin-bottom: 2mm; }
+.ref table { font-size: 8.5pt; width: auto; }
+.ref td, .ref th { padding: 1.2mm 6mm 1.2mm 0; text-align: left; }
+.ref th { color: var(--muted); font-weight: 600; }
+
+.sizes-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 5mm; }
+.sizes { font-size: 7.6pt; font-variant-numeric: tabular-nums; }
+.sizes th, .sizes td { padding: 1.05mm 1.4mm; text-align: center; border-bottom: 1px solid #EEF0F3; }
+.sizes thead th { background: var(--blue); color: #fff; font: 700 7.6pt Montserrat, sans-serif; padding: 1.8mm 1.4mm; }
+.sizes thead tr.sup th { background: var(--blue-dark); font-weight: 600; padding: 1.2mm; }
+.sizes td.ft { font-weight: 600; color: var(--ink); text-align: left; white-space: nowrap; }
+.sizes td.m { color: var(--muted); text-align: left; white-space: nowrap; }
+.sizes td.n { color: #9CA3AF; }
+.sizes tbody tr:nth-child(even) { background: #FAFBFD; }
+
+/* ---------- applications ---------- */
+.apps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4mm; margin-top: 7mm; }
+.app { position: relative; border-radius: 3mm; overflow: hidden; height: 74mm; grid-column: span 2; }
+.app:nth-child(n+4) { grid-column: span 3; height: 80mm; }
+.app img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.app .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 7mm 4mm 3mm; color: #fff;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(10,20,45,.82)); }
+.app .cap b { display: block; font: 700 10pt Montserrat, sans-serif; }
+.app .cap span { font-size: 8.5pt; opacity: .9; }
+.uses { columns: 2; column-gap: 9mm; margin: 9mm 0 0; padding-left: 4.5mm; font-size: 9.5pt; }
+.uses li { margin-bottom: 1.5mm; }
+.uses li::marker { color: var(--orange); }
+
+/* ---------- export & contact ---------- */
+.terms { margin-top: 5mm; font-size: 9pt; }
+.terms th, .terms td { text-align: left; vertical-align: top; padding: 2.2mm 3mm 2.2mm 0; border-bottom: 1px solid var(--line); }
+.terms th { width: 38mm; font-weight: 600; }
+.terms td { color: var(--muted); }
+.flow { width: 100%; margin: 5mm 0 2mm; }
+.contact { position: absolute; left: 0; right: 0; bottom: 0; height: 78mm; background: var(--blue); color: #fff; padding: 10mm 16mm;
+  display: grid; grid-template-columns: 1fr 36mm; gap: 10mm; }
+.contact::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(-55deg, rgba(255,255,255,.035) 0 9mm, rgba(255,255,255,0) 9mm 18mm); pointer-events: none; }
+.contact h2 { color: #fff; font-size: 19pt; }
+.contact .lines { display: grid; grid-template-columns: 1fr 1fr; gap: 1mm 8mm; margin-top: 5mm; font-size: 9.5pt; line-height: 1.5; }
+.contact .lines b { display: block; color: var(--orange); font: 700 7.5pt Montserrat, sans-serif; letter-spacing: .1em; text-transform: uppercase; margin-top: 2.5mm; }
+.contact .qr { background: #fff; border-radius: 3mm; padding: 2.5mm; align-self: center; text-align: center; color: var(--ink); font-size: 7pt; position: relative; }
+.contact .qr img { width: 100%; display: block; margin-bottom: 1.5mm; }
+.contact .legal { position: absolute; left: 16mm; right: 16mm; bottom: 4.5mm; font-size: 8pt; color: #DCE4F5; }
+
+.benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 10mm; }
+.benefits div { border-top: 3px solid var(--orange); padding-top: 3mm; font-size: 9.5pt; color: var(--muted); }
+.benefits b { display: block; font: 800 13pt Montserrat, sans-serif; color: var(--blue); margin-bottom: 1mm; }
+.enquiry { margin-top: 6mm; background: var(--tint); border-radius: 3mm; padding: 5mm 6mm; }
+.enquiry h3 { font-size: 10.5pt; color: var(--blue); margin-bottom: 2.5mm; }
+.enquiry ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5mm 6mm; margin: 0; padding-left: 5mm; font-size: 9.5pt; }
+.enquiry li::marker { color: var(--orange); font-weight: 700; }

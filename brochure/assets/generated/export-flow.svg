@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 170" font-family="Inter, sans-serif">
+  <!-- Order-to-shipment flow. Durations and ports from graceferroexports.com product page. -->
+  <g fill="none" stroke="#234997" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 1 order -->
+    <rect x="52" y="22" width="40" height="50" rx="4"/><path d="M60 38h24M60 48h24M60 58h14"/>
+    <!-- 2 production -->
+    <path d="M232 72V42l14 10V42l14 10V42l14 10v20z"/><path d="M262 32v-8h8v18" stroke="#DE8225"/>
+    <!-- 3 packing -->
+    <path d="M430 40l22-10 22 10v26l-22 10-22-10z"/><path d="M430 40l22 10 22-10M452 50v26"/>
+    <!-- 4 container -->
+    <rect x="600" y="34" width="70" height="38" rx="3"/><path d="M614 40v26M628 40v26M642 40v26M656 40v26" stroke="#DE8225"/>
+  </g>
+  <g stroke="#9CA3AF" stroke-width="2" stroke-dasharray="4 5">
+    <line x1="112" y1="50" x2="212" y2="50"/><line x1="296" y1="50" x2="410" y2="50"/><line x1="494" y1="50" x2="586" y2="50"/>
+  </g>
+  <g fill="#9CA3AF"><path d="M212 44l9 6-9 6z"/><path d="M410 44l9 6-9 6z"/><path d="M586 44l9 6-9 6z"/></g>
+  <g text-anchor="middle" fill="#111827">
+    <text x="72" y="102" font-size="15" font-weight="700">Order &amp; sample</text>
+    <text x="72" y="122" font-size="12.5" fill="#4B5563">GSM, size, colour</text>
+    <text x="72" y="139" font-size="12.5" fill="#4B5563">confirmed</text>
+    <text x="252" y="102" font-size="15" font-weight="700">Production</text>
+    <text x="252" y="122" font-size="12.5" fill="#4B5563">approx. 35–40 days</text>
+    <text x="452" y="102" font-size="15" font-weight="700">Export packing</text>
+    <text x="452" y="122" font-size="12.5" fill="#4B5563">bulk, palletised or</text>
+    <text x="452" y="139" font-size="12.5" fill="#4B5563">shrink-wrapped</text>
+    <text x="635" y="102" font-size="15" font-weight="700">Shipment</text>
+    <text x="635" y="122" font-size="12.5" fill="#4B5563">FOB / CIF from Chennai,</text>
+    <text x="635" y="139" font-size="12.5" fill="#4B5563">Mumbai or Nhava Sheva</text>
+  </g>
+</svg>

@@ -1,0 +1,292 @@
+[
+  {
+    "id": "KB-01",
+    "title": "Grace Ferro Exports (exporter)",
+    "tags": [
+      "company",
+      "contact",
+      "registrations",
+      "markets"
+    ],
+    "updated": "2026-10-19",
+    "file": "company.md",
+    "headings": [
+      "Registrations (as listed on the website)",
+      "Export markets (all product lines)",
+      "Other product lines",
+      "Known website issue"
+    ],
+    "sources": [
+      "S3",
+      "S4",
+      "S5",
+      "S11"
+    ],
+    "summary": "**Role:** bulk distributor and exporter of Crosspaulin™ tarpaulins. It is **not** the manufacturer; see [manufacturer.md](manufacturer.md)."
+  },
+  {
+    "id": "KB-02",
+    "title": "Manufacturer, PANKAJ®",
+    "tags": [
+      "manufacturer",
+      "pankaj",
+      "brand",
+      "trademark"
+    ],
+    "updated": "2026-10-19",
+    "file": "manufacturer.md",
+    "headings": [
+      "Unverified lead (do not publish)",
+      "Trademark rules"
+    ],
+    "sources": [
+      "S1",
+      "S8",
+      "S9",
+      "S10"
+    ],
+    "summary": "Web listings tie the **Pankaj** tarpaulin brand to **Malsons Polymers Limited**, Kolkata, West Bengal (GST 19AABCM9941J1ZZ). They make LLDPE film, multilayer tarpaulin, shade net and mulching film, and one listing claims ISO 9001:2008 and 20,000 TPA capacity (S8, S9). Founding years conflict across listings (1995 / 2004 / 2018)."
+  },
+  {
+    "id": "KB-03",
+    "title": "Crosspaulin product overview and advantages",
+    "tags": [
+      "product",
+      "cross-lamination",
+      "advantages",
+      "claims"
+    ],
+    "updated": "2026-10-19",
+    "file": "product.md",
+    "headings": [
+      "What it is",
+      "Advantages and where each claim comes from"
+    ],
+    "sources": [
+      "S1",
+      "S5",
+      "S10"
+    ],
+    "summary": "A tarpaulin made by bonding oriented polyethylene film layers at crossed angles into one sheet. An ordinary tarpaulin is woven from flat HDPE tapes and then coated. Cross-lamination spreads strength in more than one direction and leaves no weave to fray or leak. The surface has a fine crossed texture (photo: `images/crosspaulin_cross_braid.jpeg`)."
+  },
+  {
+    "id": "KB-04",
+    "title": "Technical specifications by grade",
+    "tags": [
+      "specs",
+      "gsm",
+      "colours",
+      "thickness",
+      "tensile",
+      "rolls"
+    ],
+    "updated": "2026-10-19",
+    "file": "specifications.md",
+    "headings": [
+      "Range beyond the four standard grades",
+      "Certification"
+    ],
+    "sources": [
+      "S1",
+      "S2",
+      "S5",
+      "S6",
+      "S10"
+    ],
+    "summary": ""
+  },
+  {
+    "id": "KB-05",
+    "title": "Indian standard IS 14611",
+    "tags": [
+      "standard",
+      "BIS",
+      "IS 14611",
+      "tensile",
+      "elongation",
+      "duty class"
+    ],
+    "updated": "2026-10-19",
+    "file": "standards.md",
+    "headings": [
+      "Duty classes (by GSM)",
+      "Minimum requirements (secondary source S6; verify against the BIS text)"
+    ],
+    "sources": [
+      "S6",
+      "S7"
+    ],
+    "summary": "Full title: \"Multilayered cross laminated sheets/tarpaulins/covers/agricultural films – Specification (First Revision)\" (S7)."
+  },
+  {
+    "id": "KB-06",
+    "title": "Export commercial terms",
+    "tags": [
+      "export",
+      "incoterms",
+      "payment",
+      "lead time",
+      "ports",
+      "container",
+      "samples",
+      "MOQ"
+    ],
+    "updated": "2026-10-19",
+    "file": "export-terms.md",
+    "headings": [],
+    "sources": [
+      "S5"
+    ],
+    "summary": ""
+  },
+  {
+    "id": "KB-07",
+    "title": "Applications and use cases",
+    "tags": [
+      "applications",
+      "agriculture",
+      "transport",
+      "storage",
+      "construction"
+    ],
+    "updated": "2026-10-19",
+    "file": "applications.md",
+    "headings": [],
+    "sources": [
+      "S1",
+      "S5",
+      "S10"
+    ],
+    "summary": "Listed by the exporter (S5): heavy-duty waterproof tarpaulin, agricultural tarpaulin, industrial covering sheets, truck covers, ground covers, storage covers, temporary weather protection. Sectors: agriculture, industry, construction, transportation."
+  },
+  {
+    "id": "KB-08",
+    "title": "Standard cut sizes and packing quantities",
+    "tags": [
+      "sizes",
+      "packing",
+      "packing list",
+      "cut sizes",
+      "feet",
+      "metres"
+    ],
+    "updated": "2026-10-19",
+    "file": "sizes-and-packing.md",
+    "headings": [],
+    "sources": [
+      "S2",
+      "S5"
+    ],
+    "summary": "There are 54 standard cut sizes (S2). The quantity columns are per GSM grade; their **unit is [TBC]** (pieces per bale, bundle or carton?)."
+  },
+  {
+    "id": "KB-09",
+    "title": "Brand and design guidelines",
+    "tags": [
+      "brand",
+      "colours",
+      "fonts",
+      "logo",
+      "design"
+    ],
+    "updated": "2026-10-19",
+    "file": "brand.md",
+    "headings": [
+      "Colours (sampled from the Crosspaulin logo, S1)",
+      "Typography",
+      "Logos",
+      "Visual motifs",
+      "Writing rules for export material"
+    ],
+    "sources": [
+      "S1"
+    ],
+    "summary": "Montserrat 600–800 for headings and Inter 400–700 for body text. Both are embedded locally from `brochure/assets/fonts/` (fontsource)."
+  },
+  {
+    "id": "KB-10",
+    "title": "Image library",
+    "tags": [
+      "images",
+      "photos",
+      "assets",
+      "gsm",
+      "applications"
+    ],
+    "updated": "2026-10-19",
+    "file": "image-library.md",
+    "headings": [
+      "Originals (`images/`, owner-supplied, S10; never modify)",
+      "Derived assets (`brochure/assets/`)",
+      "Resolution warning",
+      "Generated"
+    ],
+    "sources": [
+      "S10"
+    ],
+    "summary": "Grades `grade-90/120/150/200.jpg`; `texture-macro.jpg`; `cover-hero.jpg` (packs crop without the logo); `sheet-blue-90.jpg`; `sheet-yellow-150.jpg`; `pack-yellow-90.jpg`; applications `app-grain`, `app-truck2`, `app-hay`, `app-pond` (from the old PDF), `app-canopy` (from the ad), and `app-fumigation`, `app-truck`, `app-tent` (from `usages.png`)."
+  },
+  {
+    "id": "KB-11",
+    "title": "Brochure build and tooling",
+    "tags": [
+      "brochure",
+      "build",
+      "pdf",
+      "gemini",
+      "tools",
+      "review",
+      "taste"
+    ],
+    "updated": "2026-10-19",
+    "file": "brochure-build.md",
+    "headings": [
+      "Commands",
+      "Gemini image generation",
+      "Design review"
+    ],
+    "sources": [],
+    "summary": "**Output:** `output/crosspaulin-export-brochure.pdf` (A4, 8 pages)."
+  },
+  {
+    "id": "KB-12",
+    "title": "Open questions and [TBC] items",
+    "tags": [
+      "tbc",
+      "open questions",
+      "todo",
+      "owner"
+    ],
+    "updated": "2026-10-19",
+    "file": "open-questions.md",
+    "headings": [],
+    "sources": [],
+    "summary": ""
+  },
+  {
+    "id": "KB-13",
+    "title": "Source register",
+    "tags": [
+      "sources",
+      "citations",
+      "references"
+    ],
+    "updated": "2026-10-19",
+    "file": "sources.md",
+    "headings": [],
+    "sources": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11"
+    ],
+    "summary": "Accessed 2026-10-18/19. Each KB page cites these IDs."
+  }
+]

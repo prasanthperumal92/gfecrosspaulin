@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TODO – Crosspaulin Export Brochure</title>
+  <style>
+    body { font: 15px/1.5 system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 16px; color: #222; }
+    h1 { color: #D42427; } h2 { border-bottom: 2px solid #D42427; padding-bottom: 3px; margin-top: 1.8rem; }
+    code { background: #f3f3f3; padding: 1px 4px; border-radius: 3px; }
+    .task label { font-weight: 600; } ul { margin: .3rem 0 .8rem; }
+  </style>
+</head>
+<body>
+
+<h1>TODO: Crosspaulin Export Brochure</h1>
+
+<h2>Goal</h2>
+<p>Create a 6–8 page <b>A4 PDF</b> brochure for overseas buyers, made from HTML/CSS. It covers product advantages and specifications, and uses both real photos and AI-generated images. A "taste" design-review agent then reviews it.</p>
+<ul>
+  <li><b>Grace Ferro Exports</b> (www.graceferroexports.com) is the bulk distributor and exporter and publishes the brochure. It is <b>not</b> the manufacturer.</li>
+  <li><b>Crosspaulin™</b> is a cross-laminated multilayer tarpaulin, "A product of <b>PANKAJ®</b>". Keep the trademark marks.</li>
+  <li>Write in international English, with metric units first and imperial in brackets.</li>
+</ul>
+
+<h2>Inputs</h2>
+<ul>
+  <li><code>docs/crosspaulin-cross-laminated-sheets-brochure.pdf</code>: the old 1-page brochure. It is image-only, so render it with <code>pdftoppm</code> to read it. It is the source for the brand look, the logo, and the claimed features (5× tensile strength vs woven tarps, waterproof, UV-stabilised, lightweight, multi-year life, recyclable).</li>
+  <li><code>docs/packinglist.html</code>: 54 cut sizes (6'×4' to 80'×60') × 90/120/150/200 GSM. The unit of the counts is unknown. Brand red is <code>#D42427</code>.</li>
+  <li><code>images/</code>:
+    <ul>
+      <li>Grade close-ups: <code>natural_90gsm</code>, <code>green_120gsm</code> (ISI mark visible), <code>150gsm_blue_crosspaulin</code>, <code>blacksilver_200gsm</code>.</li>
+      <li>Texture macro: <code>crosspaulin_cross_braid</code>.</li>
+      <li>Pack and sheet shots: the <code>.webp</code> files and <code>*-500x500.jpg</code>.</li>
+      <li>Application tiles: <code>usages.png</code> (low resolution).</li>
+      <li>Canopy ad: <code>649546268_…jpg</code> (crop the photo only).</li>
+    </ul></li>
+  <li>Never modify <code>images/</code> or <code>docs/</code>. Copy what you need into <code>brochure/assets/</code>. Crop the logo from the rendered PDF; do not redraw it.</li>
+</ul>
+
+<h2>Output</h2>
+<p><code>brochure/</code> holds <code>index.html</code>, <code>styles.css</code>, <code>assets/</code>, <code>assets/generated/</code>, <code>sources.md</code>, <code>review/</code>, and <code>tools/gen_image.py</code>. The finished PDF goes to <code>output/crosspaulin-export-brochure.pdf</code>.</p>
+
+<h2>Tasks</h2>
+
+<div class="task"><input type="checkbox" id="t1" checked><label for="t1"> 1. Company details</label>
+<ul><li>Fetch the contact details, address, logo, certifications and markets from graceferroexports.com and save them to <code>sources.md</code>. Mark anything missing as <code>[TBC]</code>.</li></ul></div>
+
+<div class="task"><input type="checkbox" id="t2" checked><label for="t2"> 2. Specifications</label>
+<ul>
+  <li>Research official Crosspaulin/Pankaj sources. For each GSM, find: thickness, tensile and tear strength, layers, UV rating, temperature range, colours, eyelets, and certification (confirm the IS standard behind the ISI mark).</li>
+  <li>Cite every value in <code>sources.md</code>. Mark values you cannot verify as <code>[TBC]</code>. Add the footnote "Typical values; confirm with order".</li>
+</ul></div>
+
+<div class="task"><input type="checkbox" id="t3"><label for="t3"> 3. AI images</label>
+<ul>
+  <li><b>Photos (Gemini):</b> <code>python3 brochure/tools/gen_image.py "&lt;prompt&gt;" brochure/assets/generated/&lt;name&gt;.png --ref images/&lt;product photo&gt; [--aspect 4:3] [--model gemini-3-pro-image|gemini-3.1-flash-image]</code>
+    <ul>
+      <li>The key is <code>GEMINI_KEY</code> in <code>.env.local</code>. Never print or commit it.</li>
+      <li>Always pass a real product photo as <code>--ref</code> so the tarp looks true to the product.</li>
+      <li>Every prompt includes "photorealistic, no text, no logos, no faces".</li>
+      <li>Scenes:
+        <ul>
+          <li>cover hero</li>
+          <li>port cargo cover</li>
+          <li>truck cover</li>
+          <li>agriculture</li>
+          <li>construction</li>
+          <li>pond lining</li>
+          <li>relief tent</li>
+          <li>canopy</li>
+          <li>container loading</li>
+        </ul></li>
+      <li>Reject any image with garbled text, a wrong colour or fake logos. Log every prompt in <code>generated/prompts.md</code>.</li>
+      <li><b>Blocked as of 2026-10-18:</b> the API returns 429 "free_tier limit: 0", so billing is needed on the key's project. If it is still blocked, ask the owner to enable billing and use real photos as placeholders.</li>
+    </ul></li>
+  <li><b>SVG (Claude-drawn):</b>
+    <ul>
+      <li>cross-section layer diagram</li>
+      <li>advantage icon set</li>
+      <li>comparison vs woven HDPE tarp</li>
+      <li>export logistics infographic</li>
+    </ul>
+    Use the brand colours sampled from the logo.</li>
+</ul></div>
+
+<div class="task"><input type="checkbox" id="t4" checked><label for="t4"> 4. Build the brochure</label>
+<ul>
+  <li>Pages, in order:
+    <ol>
+      <li>Cover (with "Exported by Grace Ferro Exports")</li>
+      <li>About the exporter and the manufacturer</li>
+      <li>What is cross-lamination</li>
+      <li>Advantages and comparison</li>
+      <li>Product range (4 GSM cards)</li>
+      <li>Specifications table</li>
+      <li>Sizes and packing (ft and m)</li>
+      <li>Applications</li>
+      <li>Export terms and contact, with a QR code to the website</li>
+    </ol></li>
+  <li>Use <code>@page { size: A4; margin: 0 }</code> with one 210×297 mm section per page, and use local or system fonts.</li>
+</ul></div>
+
+<div class="task"><input type="checkbox" id="t5" checked><label for="t5"> 5. Render the PDF</label>
+<ul><li>Print with headless Chrome or Playwright, with backgrounds on. Check that <code>pdfinfo</code> reports 595×842 pt, look at every page as a PNG, and keep the file under 10 MB.</li></ul></div>
+
+<div class="task"><input type="checkbox" id="t6" checked><label for="t6"> 6. Taste design review</label>
+<ul>
+  <li>Find a "taste" design skill in the plugin marketplaces or on GitHub. Read its SKILL.md before installing it. If none exists, ask the owner.</li>
+  <li>Spawn a reviewer subagent with the skill to review the page PNGs. Save the report to <code>review/review-1.md</code>, apply the fixes, re-render, and review once more.</li>
+</ul></div>
+
+<div class="task"><input type="checkbox" id="t7" checked><label for="t7"> 7. Hand-off</label>
+<ul><li>Every number is either sourced or marked <code>[TBC]</code>, and the QR code scans. Report the PDF path, the open <code>[TBC]</code> items, and the review summary.</li></ul></div>
+
+<h2>Rules</h2>
+<ul>
+  <li>Do not invent specs, certifications, MOQ, prices or lead times.</li>
+  <li>Do not alter the logos or claim that Grace Ferro manufactures the product.</li>
+  <li>Do not publish or send the brochure anywhere.</li>
+</ul>
+
+<h2>Open questions for the owner</h2>
+<ul>
+  <li>What unit do the packing-list counts use: per bale, bundle, or carton?</li>
+  <li>MOQ, lead time, Incoterms, and payment terms?</li>
+  <li>Are vector logos available?</li>
+  <li>Are custom sizes, colours, or private labels available?</li>
+  <li>Are there target markets to highlight?</li>
+</ul>
+
+</body>
+</html>

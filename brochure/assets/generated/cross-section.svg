@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 40 720 430" font-family="Inter, sans-serif">
+  <!-- Exploded view of a cross-laminated multilayer sheet. Illustrative, not to scale. -->
+  <defs>
+    <pattern id="md" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+      <line x1="0" y1="0" x2="10" y2="0" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/>
+    </pattern>
+    <pattern id="cd" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-38.66)">
+      <line x1="0" y1="0" x2="12" y2="0" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/>
+    </pattern>
+  </defs>
+
+  <!-- layer: top face parallelogram A(60,y) B(380,y) C(480,y-80) D(160,y-80), edge 10px -->
+  <g id="l4">
+    <path d="M60 400 L380 400 L380 410 L60 410 Z" fill="#1A3672"/>
+    <path d="M380 400 L480 320 L480 330 L380 410 Z" fill="#14295A"/>
+    <path d="M60 400 L380 400 L480 320 L160 320 Z" fill="#234997" fill-opacity=".92"/>
+  </g>
+  <g id="l3">
+    <path d="M60 310 L380 310 L380 320 L60 320 Z" fill="#B86A1C"/>
+    <path d="M380 310 L480 230 L480 240 L380 320 Z" fill="#9A5816"/>
+    <path d="M60 310 L380 310 L480 230 L160 230 Z" fill="#DE8225"/>
+    <path d="M60 310 L380 310 L480 230 L160 230 Z" fill="url(#cd)"/>
+  </g>
+  <g id="l2">
+    <path d="M60 220 L380 220 L380 230 L60 230 Z" fill="#B86A1C"/>
+    <path d="M380 220 L480 140 L480 150 L380 230 Z" fill="#9A5816"/>
+    <path d="M60 220 L380 220 L480 140 L160 140 Z" fill="#DE8225"/>
+    <path d="M60 220 L380 220 L480 140 L160 140 Z" fill="url(#md)"/>
+  </g>
+  <g id="l1">
+    <path d="M60 130 L380 130 L380 140 L60 140 Z" fill="#1A3672"/>
+    <path d="M380 130 L480 50 L480 60 L380 140 Z" fill="#14295A"/>
+    <path d="M60 130 L380 130 L480 50 L160 50 Z" fill="#234997" fill-opacity=".92"/>
+    <path d="M60 130 L380 130 L480 50 L160 50 Z" fill="#ffffff" fill-opacity=".08"/>
+  </g>
+
+  <!-- leader lines + labels -->
+  <g stroke="#6B7280" stroke-width="1.2" fill="none">
+    <path d="M440 90 L520 90"/>
+    <path d="M440 180 L520 180"/>
+    <path d="M440 270 L520 270"/>
+    <path d="M440 360 L520 360"/>
+  </g>
+  <g fill="#111827">
+    <text x="530" y="86" font-size="21" font-weight="700">Outer film</text>
+    <text x="530" y="106" font-size="16.5" fill="#4B5563">UV-stabilised surface</text>
+
+    <text x="530" y="176" font-size="21" font-weight="700">Oriented layer</text>
+    <text x="530" y="196" font-size="16.5" fill="#4B5563">strength along one direction</text>
+
+    <text x="530" y="266" font-size="21" font-weight="700">Cross-oriented layer</text>
+    <text x="530" y="286" font-size="16.5" fill="#4B5563">laminated at a crossed angle</text>
+
+    <text x="530" y="356" font-size="21" font-weight="700">Outer film</text>
+    <text x="530" y="376" font-size="16.5" fill="#4B5563">UV-stabilised surface</text>
+  </g>
+  <text x="60" y="455" font-size="15" fill="#6B7280">Illustrative exploded view, not to scale. Layer count varies by grade.</text>
+</svg>
