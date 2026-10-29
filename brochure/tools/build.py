@@ -11,13 +11,17 @@ Run from anywhere: python3 brochure/tools/build.py
 import pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-src = (ROOT / "docs/packinglist.html").read_text()
-rows = []
-for tr in re.findall(r"<tr[^>]*>(.*?)</tr>", src, re.S):
-    cells = [re.sub(r"<[^>]+>", "", c).strip() for c in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
-    if len(cells) == 6:
-        rows.append(cells)
-assert len(rows) == 54, len(rows)
+
+
+def packinglist_rows():
+    src = (ROOT / "docs/packinglist.html").read_text()
+    rows = []
+    for tr in re.findall(r"<tr[^>]*>(.*?)</tr>", src, re.S):
+        cells = [re.sub(r"<[^>]+>", "", c).strip() for c in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
+        if len(cells) == 6:
+            rows.append(cells)
+    assert len(rows) == 54, len(rows)
+    return rows
 
 
 def metres(size):
@@ -38,16 +42,26 @@ def table(chunk):
     return "\n".join(out)
 
 
-def build(html_path, tables):
-    html = html_path.read_text()
-    block = "<!--SIZES:start-->\n" + "\n".join(tables) + "\n<!--SIZES:end-->"
-    html = re.sub(r"<!--SIZES:start-->.*?<!--SIZES:end-->", lambda _: block, html, flags=re.S)
-    html = re.sub(r"<!--SVG:(.*?)-->.*?<!--/SVG-->",
-                  lambda m: f"<!--SVG:{m[1]}-->" + (html_path.parent / m[1]).read_text().strip() + "<!--/SVG-->",
+def fill(html, name, content):
+    """Replace the generated block between <!--NAME:start--> and <!--NAME:end-->."""
+    block = f"<!--{name}:start-->\n{content}\n<!--{name}:end-->"
+    return re.sub(rf"<!--{name}:start-->.*?<!--{name}:end-->", lambda _: block, html, flags=re.S)
+
+
+def inline_svgs(html, base):
+    """Inline each <!--SVG:path--> ... <!--/SVG--> block; path is relative to base."""
+    return re.sub(r"<!--SVG:(.*?)-->.*?<!--/SVG-->",
+                  lambda m: f"<!--SVG:{m[1]}-->" + (base / m[1]).read_text().strip() + "<!--/SVG-->",
                   html, flags=re.S)
-    html_path.write_text(html)
 
 
-build(ROOT / "brochure/index.html", [table(rows[:27]), table(rows[27:])])
-build(ROOT / "index.html", [table(rows)])
-print("sizes table: 54 rows written; SVGs inlined (brochure and website)")
+def build(html_path, tables):
+    html = fill(html_path.read_text(), "SIZES", "\n".join(tables))
+    html_path.write_text(inline_svgs(html, html_path.parent))
+
+
+if __name__ == "__main__":
+    rows = packinglist_rows()
+    build(ROOT / "brochure/index.html", [table(rows[:27]), table(rows[27:])])
+    build(ROOT / "index.html", [table(rows)])
+    print("sizes table: 54 rows written; SVGs inlined (brochure and website)")

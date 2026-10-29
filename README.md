@@ -13,13 +13,14 @@ Both are static HTML/CSS. The brochure is printed to PDF with headless Chrome.
 | `index.html`, `site.css` | Website home page. Shares fonts, images and SVGs with the brochure via `brochure/assets/` |
 | `brochure/index.html`, `brochure/styles.css` | Brochure source and the website's brochure page, one `<section class="page">` per A4 page. The site bar at the top is screen-only |
 | `brochure/assets/` | Images, logos, fonts and generated SVGs used by the brochure |
-| `brochure/tools/` | `build.py` (sizes table + SVG inlining, for both pages), `render.sh` (PDF + page PNGs), `package-site.sh` (assembles the public website in `_site/`), `gen_image.py` (Gemini images) |
+| `brochure/tools/` | `build.py` (sizes table + SVG inlining, for both pages), `render.sh` (PDF + page PNGs for any brochure folder), `package-site.sh` (assembles the public website in `_site/`), `gen_image.py` (Gemini images) |
 | `brochure/sources.md` | Where every number and claim in the brochure comes from |
 | `brochure/review/` | Design review reports and page snapshots |
-| `kb/` | Knowledge base: specs, standards, terms, brand, open questions. Start at `kb/INDEX.md` |
+| `kb/` | Knowledge base: specs, standards, terms, brand, open questions. Purity pages are `kb/purity-*.md`. Start at `kb/INDEX.md` |
 | `docs/` | Source documents: manufacturer information sheet, ISO certificate, old brochure, packing list |
 | `images/` | Original owner-supplied photos |
-| `output/` | The rendered PDF |
+| `purity/` | Purity PVC tarpaulin brochure (6 pages): `index.html`, `styles.css`, `assets/`, `tools/build.py`, `sources.md`, `review/` |
+| `output/` | The rendered PDFs |
 
 ## Generating the PDF (instructions for an agent)
 
@@ -72,3 +73,15 @@ brochure/tools/package-site.sh    # writes _site/ and fails if internal details 
 ```
 
 Deploy **only `_site/`** to a static host. Never serve the repository root: `kb/`, `docs/` and `brochure/sources.md` contain manufacturer details and internal prices.
+
+## Purity PVC tarpaulin brochure
+
+A second, 6-page A4 brochure for **Purity PVC Tarpaulin** (double-side PVC-coated, 400–760 GSM, rolls and sheets). Grace Ferro is the exporter. The spec is in `TODO.html`.
+
+```bash
+brochure/tools/render.sh purity purity-pvc-tarpaulin-brochure.pdf   # -> output/purity-pvc-tarpaulin-brochure.pdf
+```
+- Grades, roll size and sheet sizes live in `purity/tools/build.py`. It generates the grade cards, the roll table and the sheet table (with calculated weights) between `<!--GRADES-->`, `<!--ROLL-->` and `<!--SHEETS-->` markers. Do not edit those blocks by hand.
+- **`docs/purity/price-list-internal.png` is internal.** No price, rate, GST or ₹ may appear in `purity/`. CI (`.github/workflows/purity.yml`) fails if one does, and also if Crosspaulin's terms (24 MT, 35–40 days, IS 14611, its HS code) appear.
+- Every claim is listed in `purity/sources.md`; unknowns are in `kb/purity-open-questions.md`. The design is deliberately distinct from Crosspaulin (graphite and yellow, Barlow Condensed headings; see `kb/purity-brand.md`). The palette is a placeholder until the Purity logo arrives.
+- The Purity brochure is not part of the crosspaulin.com website or `package-site.sh`.

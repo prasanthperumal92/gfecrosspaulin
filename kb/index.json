@@ -318,5 +318,92 @@
       "S13"
     ],
     "summary": "Accessed 2026-10-18/19. Each KB page cites these IDs."
+  },
+  {
+    "id": "KB-14",
+    "title": "Purity PVC tarpaulin: product, specifications and sizes",
+    "tags": [
+      "purity",
+      "pvc",
+      "specifications",
+      "sizes",
+      "rolls",
+      "sheets"
+    ],
+    "updated": "2026-10-29",
+    "file": "purity-product.md",
+    "headings": [
+      "Known (P1)",
+      "From Grace Ferro's PVC page (G1, generic for the whole PVC line)",
+      "Unknown [TBC]",
+      "Copy decisions"
+    ],
+    "sources": [
+      "G1",
+      "P1",
+      "P3",
+      "P4"
+    ],
+    "summary": "A double-side PVC-coated tarpaulin, sold as rolls or ready-made sheets. Grace Ferro is the distributor and exporter, not the manufacturer. Sources: [`purity/sources.md`](../purity/sources.md) (P1–P4, G1)."
+  },
+  {
+    "id": "KB-15",
+    "title": "Purity brochure: brand and design",
+    "tags": [
+      "purity",
+      "brand",
+      "colours",
+      "logo",
+      "images"
+    ],
+    "updated": "2026-10-29",
+    "file": "purity-brand.md",
+    "headings": [
+      "Palette (PLACEHOLDER, not from a logo)",
+      "How it differs from Crosspaulin",
+      "Images"
+    ],
+    "sources": [
+      "P4"
+    ],
+    "summary": "No Purity logo has been supplied. The palette is graphite and safety yellow, chosen on 2026-10-29 to look clearly different from Crosspaulin's royal blue and orange. Blue appears only where it shows the product itself (photos, cross-section and roll diagrams)."
+  },
+  {
+    "id": "KB-16",
+    "title": "Purity PVC tarpaulin: export terms and internal price list",
+    "tags": [
+      "purity",
+      "export",
+      "payment",
+      "incoterms",
+      "ports",
+      "price"
+    ],
+    "updated": "2026-10-29",
+    "file": "purity-export-terms.md",
+    "headings": [
+      "Buyer-facing (used on page 6; source G1)",
+      "Internal: price list P1 (never publish)"
+    ],
+    "sources": [
+      "G1",
+      "P1"
+    ],
+    "summary": "Domestic INR prices, including freight and 18% GST, double-side coated."
+  },
+  {
+    "id": "KB-17",
+    "title": "Purity PVC tarpaulin: open questions",
+    "tags": [
+      "purity",
+      "tbc",
+      "open questions",
+      "owner"
+    ],
+    "updated": "2026-10-29",
+    "file": "purity-open-questions.md",
+    "headings": [],
+    "sources": [],
+    "summary": ""
   }
 ]
