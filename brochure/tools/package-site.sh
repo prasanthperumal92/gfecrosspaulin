@@ -13,7 +13,7 @@ cp -r "$ROOT/brochure/assets" "$OUT/brochure/"
 rm -f "$OUT/brochure/assets/generated/prompts.md"
 cp "$ROOT/output/crosspaulin-export-brochure.pdf" "$OUT/output/"
 
-# sitemap.xml for search engines; lastmod comes from each page's last commit
+# sitemap.xml and robots.txt for search engines; lastmod comes from each page's last commit
 SITE_URL="${SITE_URL:-https://gfecrosspaulin.vercel.app/}"
 lastmod() { git -C "$ROOT" log -1 --format=%cs -- "$@" 2>/dev/null || date -u +%F; }
 {
@@ -24,6 +24,7 @@ lastmod() { git -C "$ROOT" log -1 --format=%cs -- "$@" 2>/dev/null || date -u +%
   printf '  <url><loc>%soutput/crosspaulin-export-brochure.pdf</loc><lastmod>%s</lastmod></url>\n' "$SITE_URL" "$(lastmod brochure)"
   echo '</urlset>'
 } > "$OUT/sitemap.xml"
+printf 'User-agent: *\nAllow: /\n\nSitemap: %ssitemap.xml\n' "$SITE_URL" > "$OUT/robots.txt"
 if grep -rniE "malson|CM/L|IN122639|₹|/kg" "$OUT" --include='*.html' --include='*.css' --include='*.svg'; then
   echo "Internal or manufacturer-only details found in _site/" >&2; exit 1
 fi
