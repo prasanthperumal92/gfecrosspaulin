@@ -14,7 +14,7 @@ rm -f "$OUT/brochure/assets/generated/prompts.md"
 cp "$ROOT/output/crosspaulin-export-brochure.pdf" "$OUT/output/"
 
 # sitemap.xml for search engines; lastmod comes from each page's last commit
-SITE_URL="${SITE_URL:-https://prasanthperumal92.github.io/gfecrosspaulin/}"
+SITE_URL="${SITE_URL:-https://gfecrosspaulin.vercel.app/}"
 lastmod() { git -C "$ROOT" log -1 --format=%cs -- "$@" 2>/dev/null || date -u +%F; }
 {
   echo '<?xml version="1.0" encoding="UTF-8"?>'
