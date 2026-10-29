@@ -5,7 +5,9 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 OUT="$ROOT/_site"
 python3 "$ROOT/brochure/tools/build.py"
-rm -rf "$OUT"
+# Clear the previous build but keep .vercel/ (the Vercel project link)
+mkdir -p "$OUT"
+find "$OUT" -mindepth 1 -maxdepth 1 ! -name .vercel -exec rm -rf {} +
 mkdir -p "$OUT/brochure" "$OUT/output"
 cp "$ROOT/index.html" "$ROOT/site.css" "$OUT/"
 cp "$ROOT/brochure/index.html" "$ROOT/brochure/styles.css" "$OUT/brochure/"
