@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crosspaulin Video Script</title>
+<style>
+  :root {
+    --bg: #f7f6f2; --surface: #ffffff; --text: #1d2125; --muted: #5f6770;
+    --line: #dedad0; --accent: #1f5fa8; --accent-soft: #e6eef8; --warn: #8a5a00; --warn-soft: #fff4dc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15181b; --surface: #1d2125; --text: #e8e6e1; --muted: #a0a7af;
+      --line: #33393f; --accent: #7fb0ea; --accent-soft: #1f2d3d; --warn: #f0c36a; --warn-soft: #3a2f17;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15181b; --surface: #1d2125; --text: #e8e6e1; --muted: #a0a7af;
+    --line: #33393f; --accent: #7fb0ea; --accent-soft: #1f2d3d; --warn: #f0c36a; --warn-soft: #3a2f17;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 1.9rem; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 0 0 28px; }
+  .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 28px; }
+  .meta div { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; }
+  .meta b { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  .note { background: var(--warn-soft); color: var(--text); border-left: 4px solid var(--warn); padding: 12px 16px; border-radius: 6px; margin-bottom: 32px; font-size: .95rem; }
+  .scene { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 18px; overflow: hidden; }
+  .scene header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; padding: 12px 18px; border-bottom: 1px solid var(--line); background: var(--accent-soft); }
+  .scene header .num { font-weight: 700; color: var(--accent); }
+  .scene header h2 { font-size: 1.05rem; margin: 0; flex: 1; }
+  .scene header .tc { font-variant-numeric: tabular-nums; color: var(--muted); font-size: .9rem; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .grid > div { padding: 14px 18px; }
+  .grid > div + div { border-left: 1px solid var(--line); }
+  .label { font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+  .vo { font-size: 1.02rem; }
+  .vo p { margin: 0; }
+  ul { margin: 0; padding-left: 18px; }
+  .extra { border-top: 1px solid var(--line); padding: 10px 18px; font-size: .9rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 24px; }
+  .extra b { color: var(--text); font-weight: 600; }
+  .ost { display: inline-block; background: var(--text); color: var(--bg); padding: 1px 8px; border-radius: 4px; font-size: .88rem; font-weight: 600; }
+  h3 { margin: 36px 0 10px; font-size: 1.15rem; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; font-size: .93rem; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+    .grid > div + div { border-left: 0; border-top: 1px solid var(--line); }
+  }
+  @media print { body { background: #fff; } .scene { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Crosspaulin — Product Video Script</h1>
+  <p class="sub">GraceFerro Exports · 2-minute product film · Draft 1</p>
+
+  <div class="meta">
+    <div><b>Runtime</b>2:00 (8 scenes)</div>
+    <div><b>Format</b>16:9 master, 9:16 cut-down for reels</div>
+    <div><b>Voice-over</b>~270 words, calm and confident, English (Hindi/Tamil dub optional)</div>
+    <div><b>Music</b>Warm acoustic → driving percussion build from Scene 4</div>
+  </div>
+
+  <div class="note">
+    <b>Check before the shoot:</b> sizes (6 × 4 ft to 24 × 15 ft), weights (70–300 GSM), colour choice, custom sizes and fixed pack counts come from our product catalogue. The product is a cross-laminated tarpaulin. The claims about UV stabilisation, aluminium eyelets and reinforced edges are typical for this product but are <i>not</i> recorded in our catalogue — confirm each with production and drop any we can't stand behind.
+  </div>
+
+  <!-- Scene 1 -->
+  <section class="scene">
+    <header><span class="num">01</span><h2>Cold open — the storm</h2><span class="tc">0:00 – 0:10</span></header>
+    <div class="grid">
+      <div>
+        <div class="label">Visuals</div>
+        <ul>
+          <li>Dark clouds rolling over a farm field, wind bending crops.</li>
+          <li>Fast cuts: first raindrops hitting dust, a farmer looking up, harvested grain sacks in the open.</li>
+          <li>A blue Crosspaulin snaps open in the wind and settles over the sacks.</li>
+        </ul>
+      </div>
+      <div class="vo">
+        <div class="label">Voice-over</div>
+        <p>“The weather doesn't wait. A season of work can be lost in one afternoon.”</p>
+      </div>
+    </div>
+    <div class="extra"><span><b>SFX:</b> thunder, wind, rain onset</span><span><b>On-screen:</b> none</span></div>
+  </section>
+
+  <!-- Scene 2 -->
+  <section class="scene">
+    <header><span class="num">02</span><h2>Brand reveal</h2><span class="tc">0:10 – 0:18</span></header>
+    <div class="grid">
+      <div>
+        <div class="label">Visuals</div>
+        <ul>
+          <li>Rain drumming on the stretched sheet; beads of water roll off.</li>
+          <li>Slow push-in, cut to black.</li>
+          <li>GraceFerro Exports logo, then the product name.</li>
+        </ul>
+      </div>
+      <div class="vo">
+        <div class="label">Voice-over</div>
+        <p>“That's why we make Crosspaulin.”</p>
+      </div>
+    </div>
+    <div class="extra"><span><b>On-screen:</b> <span class="ost">CROSSPAULIN</span> — by GraceFerro Exports</span><span><b>Music:</b> sting on logo</span></div>
+  </section>
+
+  <!-- Scene 3 -->
+  <section class="scene">
+    <header><span class="num">03</span><h2>Inside the factory — how it's made</h2><span class="tc">0:18 – 0:38</span></header>
+    <div class="grid">
+      <div>
+        <div class="label">Visuals</div>
+        <ul>
+          <li>Rolls of film feeding into the lamination line, one running lengthwise, one crosswise.</li>
+          <li>Graphic overlay: the layers rotate into a criss-cross and fuse into one sheet.</li>
+          <li>Macro shot of the finished surface catching the light; a hand flexes it to show it's both strong and light.</li>
+          <li>Hands checking a sample on a GSM scale; QC inspector stamps a sheet.</li>
+          <li>Hem stitching, eyelets punched into the corners.</li>
+        </ul>
+      </div>
+      <div class="vo">
+        <div class="label">Voice-over</div>
+        <p>“Every Crosspaulin is cross-laminated: layers of film are bonded at right angles to each other, so the sheet is strong in every direction, stays light, and is waterproof right through. Each batch is weighed and inspected, then hemmed and fitted with eyelets — so it's ready to tie down the moment it leaves the bundle.”</p>
+      </div>
+    </div>
+    <div class="extra"><span><b>On-screen:</b> <span class="ost">Cross-laminated · Strong in every direction · Weighed &amp; checked</span></span><span><b>SFX:</b> machine hum, punch press</span></div>
+  </section>
+
+  <!-- Scene 4 -->
+  <section class="scene">
+    <header><span class="num">04</span><h2>Strength test</h2><span class="tc">0:38 – 0:52</span></header>
+    <div class="grid">
+      <div>
+        <div class="label">Visuals</div>
+        <ul>
+          <li>Two workers pull a sheet taut from opposite ends — it holds.</li>
+          <li>Bucket of water poured onto a sagging sheet; underside stays dry (show the hand underneath).</li>
+          <li>Time-lapse: sheet in harsh midday sun, colour stays bright.</li>
+        </ul>
+      </div>
+      <div class="vo">
+        <div class="label">Voice-over</div>
+        <p>“It's built to take a pull, hold the water out, and stand up to long days under the sun.”</p>
+      </div>
+    </div>
+    <div class="extra"><span><b>On-screen:</b> <span class="ost">Tear-resistant</span> <span class="ost">Waterproof</span> <span class="ost">Sun-ready</span></span><span><b>Music:</b> percussion kicks in</span></div>
+  </section>
+
+  <!-- Scene 5 -->
+  <section class="scene">
+    <header><span class="num">05</span><h2>Built for many jobs</h2><span class="tc">0:52 – 1:12</span></header>
+    <div class="grid">
+      <div>
+        <div class="label">Visuals (quick montage, ~3 s each)</div>
+        <ul>
+          <li>Truck load being covered and roped at a highway dhaba.</li>
+          <li>Paddy drying on a Crosspaulin in a courtyard.</li>
+          <li>Construction site: sheet shading cement bags.</li>
+          <li>Fishing boat deck covered at the harbour.</li>
+          <li>Market stall roof in a light drizzle.</li>
+          <li>Relief-camp style shelter being pitched.</li>
+        </ul>
+      </div>
+      <div class="vo">
+        <div class="label">Voice-over</div>
+        <p>“On the highway, in the field, on the site, at the harbour, in the market — wherever something needs covering, Crosspaulin is doing the job.”</p>
+      </div>
+    </div>
+    <div class="extra"><span><b>On-screen:</b> one-word captions per shot — Transport · Farming · Construction · Fishing · Retail · Shelter</span></div>
+  </section>
+
+  <!-- Scene 6 -->
+  <section class="scene">
+    <header><span class="num">06</span><h2>The range — sizes, weights, colours</h2><span class="tc">1:12 – 1:32</span></header>
+    <div class="grid">
+      <div>
+        <div class="label">Visuals</div>
+        <ul>
+          <li>Warehouse wide shot, rows of folded bundles in different colours.</li>
+          <li>Motion graphic: a sheet grows from 6 × 4 ft to 24 × 15 ft.</li>
+          <li>A GSM slider sweeps 70 → 300 while the sheet on screen thickens.</li>
+          <li>Colour swatches flip past.</li>
+          <li>A worker cuts and hems a custom size to order.</li>
+        </ul>
+      </div>
+      <div class="vo">
+        <div class="label">Voice-over</div>
+        <p>“Pick the size you need — from six by four feet up to twenty-four by fifteen and beyond. Choose the weight, from a light seventy GSM to a heavy-duty three hundred, in the colour that suits your work. Need something different? We'll make it to your size.”</p>
+      </div>
+    </div>
+    <div class="extra"><span><b>On-screen:</b> <span class="ost">6×4 ft → 24×15 ft</span> <span class="ost">70 – 300 GSM</span> <span class="ost">Custom sizes</span></span></div>
+  </section>
+
+  <!-- Scene 7 -->
+  <section class="scene">
+    <header><span class="num">07</span><h2>Packed and shipped</h2><span class="tc">1:32 – 1:48</span></header>
+    <div class="grid">
+      <div>
+        <div class="label">Visuals</div>
+        <ul>
+          <li>Sheets folded and stacked into labelled bundles (label shows size, GSM, pieces).</li>
+          <li>Bundles strapped onto a pallet, forklift loads a container.</li>
+          <li>Container doors close; truck pulls out of the GraceFerro gate.</li>
+        </ul>
+      </div>
+      <div class="vo">
+        <div class="label">Voice-over</div>
+        <p>“Every order is packed in fixed bundles, clearly labelled by size and weight — easy to count, easy to stock, and ready to ship across India and overseas.”</p>
+      </div>
+    </div>
+    <div class="extra"><span><b>On-screen:</b> <span class="ost">Labelled bundles · Domestic &amp; export</span></span></div>
+  </section>
+
+  <!-- Scene 8 -->
+  <section class="scene">
+    <header><span class="num">08</span><h2>Close — back to the farm</h2><span class="tc">1:48 – 2:00</span></header>
+    <div class="grid">
+      <div>
+        <div class="label">Visuals</div>
+        <ul>
+          <li>Storm has passed; sun breaks through.</li>
+          <li>Farmer pulls back the Crosspaulin — grain sacks are dry. A smile.</li>
+          <li>End card: logo, product name, contact details.</li>
+        </ul>
+      </div>
+      <div class="vo">
+        <div class="label">Voice-over</div>
+        <p>“Whatever the weather brings, cover it with confidence. Crosspaulin, from GraceFerro Exports.”</p>
+      </div>
+    </div>
+    <div class="extra"><span><b>End card:</b> GraceFerro Exports logo · <span class="ost">CROSSPAULIN</span> · email · phone · website · “Bulk &amp; export enquiries welcome”</span></div>
+  </section>
+
+  <h3>Shot list &amp; prep checklist</h3>
+  <table>
+    <thead><tr><th>Location</th><th>Scenes</th><th>Needs</th></tr></thead>
+    <tbody>
+      <tr><td>Farm / courtyard</td><td>1, 2, 5, 8</td><td>Grain sacks, rain machine or real-weather day, wind fan, farmer talent</td></tr>
+      <tr><td>Factory floor</td><td>3, 4</td><td>Cross-lamination line running, GSM scale, eyelet press, QC person, macro lens</td></tr>
+      <tr><td>Warehouse / dispatch</td><td>6, 7</td><td>Bundles in all colours, printed bundle labels, pallet, forklift, container</td></tr>
+      <tr><td>Montage pick-ups</td><td>5</td><td>Truck, construction site, harbour boat, market stall, shelter — stock footage is fine if access is hard</td></tr>
+      <tr><td>Post-production</td><td>2, 4, 6, 8</td><td>Logo animation, size/GSM motion graphics, captions, end card, music licence</td></tr>
+    </tbody>
+  </table>
+</main>
+</body>
+</html>
