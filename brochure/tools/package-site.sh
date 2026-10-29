@@ -12,6 +12,18 @@ cp "$ROOT/brochure/index.html" "$ROOT/brochure/styles.css" "$OUT/brochure/"
 cp -r "$ROOT/brochure/assets" "$OUT/brochure/"
 rm -f "$OUT/brochure/assets/generated/prompts.md"
 cp "$ROOT/output/crosspaulin-export-brochure.pdf" "$OUT/output/"
+
+# sitemap.xml for search engines; lastmod comes from each page's last commit
+SITE_URL="${SITE_URL:-https://prasanthperumal92.github.io/gfecrosspaulin/}"
+lastmod() { git -C "$ROOT" log -1 --format=%cs -- "$@" 2>/dev/null || date -u +%F; }
+{
+  echo '<?xml version="1.0" encoding="UTF-8"?>'
+  echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+  printf '  <url><loc>%s</loc><lastmod>%s</lastmod></url>\n' "$SITE_URL" "$(lastmod index.html site.css)"
+  printf '  <url><loc>%sbrochure/</loc><lastmod>%s</lastmod></url>\n' "$SITE_URL" "$(lastmod brochure/index.html brochure/styles.css)"
+  printf '  <url><loc>%soutput/crosspaulin-export-brochure.pdf</loc><lastmod>%s</lastmod></url>\n' "$SITE_URL" "$(lastmod brochure)"
+  echo '</urlset>'
+} > "$OUT/sitemap.xml"
 if grep -rniE "malson|CM/L|IN122639|₹|/kg" "$OUT" --include='*.html' --include='*.css' --include='*.svg'; then
   echo "Internal or manufacturer-only details found in _site/" >&2; exit 1
 fi
