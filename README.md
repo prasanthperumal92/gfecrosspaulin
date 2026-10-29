@@ -1,17 +1,19 @@
-# Crosspaulin Export Brochure
+# Crosspaulin Website and Export Brochure
 
-An 8-page A4 export brochure for **Crosspaulin™**, a cross-laminated multilayer tarpaulin (a product of PANKAJ®). The publisher is **Grace Ferro Exports Pvt Ltd**, the product's distributor and exporter.
-The brochure is written in HTML/CSS and printed to PDF with headless Chrome.
+A product website and an 8-page A4 export brochure for **Crosspaulin™**, a cross-laminated multilayer tarpaulin (a product of PANKAJ®). The publisher is **Grace Ferro Exports Pvt Ltd**, the product's distributor and exporter.
+Both are static HTML/CSS. The brochure is printed to PDF with headless Chrome.
 
-**Output:** `output/crosspaulin-export-brochure.pdf`
+**Website:** `index.html` (home page) and `brochure/` (the brochure page, with a PDF download). Open `index.html` in a browser to preview.
+**PDF:** `output/crosspaulin-export-brochure.pdf`
 
 ## Layout
 
 | Path | What it is |
 |---|---|
-| `brochure/index.html`, `brochure/styles.css` | Brochure source, one `<section class="page">` per A4 page |
+| `index.html`, `site.css` | Website home page. Shares fonts, images and SVGs with the brochure via `brochure/assets/` |
+| `brochure/index.html`, `brochure/styles.css` | Brochure source and the website's brochure page, one `<section class="page">` per A4 page. The site bar at the top is screen-only |
 | `brochure/assets/` | Images, logos, fonts and generated SVGs used by the brochure |
-| `brochure/tools/` | `build.py` (sizes table + SVG inlining), `render.sh` (PDF + page PNGs), `gen_image.py` (Gemini images) |
+| `brochure/tools/` | `build.py` (sizes table + SVG inlining, for both pages), `render.sh` (PDF + page PNGs), `package-site.sh` (assembles the public website in `_site/`), `gen_image.py` (Gemini images) |
 | `brochure/sources.md` | Where every number and claim in the brochure comes from |
 | `brochure/review/` | Design review reports and page snapshots |
 | `kb/` | Knowledge base: specs, standards, terms, brand, open questions. Start at `kb/INDEX.md` |
@@ -46,7 +48,7 @@ This runs `build.py` and prints the PDF to `output/crosspaulin-export-brochure.p
    ```
    Check that no text is clipped or hidden under the contact band on page 8, and that no table runs into a page footer. Also check that no page spills onto an extra page.
 3. Check that the brochure contains no `[TBC]` marker unless one is intended: `grep -n TBC brochure/index.html`.
-4. Check for leaks. This must return nothing: `grep -niE "malson|CM/L|IN122639|₹|/kg" brochure/index.html`.
+4. Check for leaks. This must return nothing: `grep -niE "malson|CM/L|IN122639|₹|/kg" brochure/index.html index.html`.
 
 ### 5. Report
 Report the PDF path, the page count and file size, and what changed. Do not publish, upload or send the PDF anywhere unless the owner asks.
@@ -60,3 +62,13 @@ Report the PDF path, the page count and file size, and what changed. Do not publ
 - `images/` and `docs/` are originals: never modify them. Copy what you need into `brochure/assets/`.
 - Open questions for the owner are in `kb/open-questions.md`.
 
+## Publishing the website
+
+The website copy matches the brochure. When you change a fact, change it in both `index.html` and `brochure/index.html`. The sizes table and inlined SVGs are filled in both by `build.py`.
+
+```bash
+brochure/tools/render.sh          # rebuild the PDF first, so the download is current
+brochure/tools/package-site.sh    # writes _site/ and fails if internal details leak
+```
+
+Deploy **only `_site/`** to a static host. Never serve the repository root: `kb/`, `docs/` and `brochure/sources.md` contain manufacturer details and internal prices.

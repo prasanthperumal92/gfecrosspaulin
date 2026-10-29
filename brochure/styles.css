@@ -189,3 +189,15 @@ table { border-collapse: collapse; width: 100%; }
 .enquiry h3 { font-size: 10.5pt; color: var(--blue); margin-bottom: 2.5mm; }
 .enquiry ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5mm 6mm; margin: 0; padding-left: 5mm; font-size: 9.5pt; }
 .enquiry li::marker { color: var(--orange); font-weight: 700; }
+
+/* ---------- website bar (screen only) ---------- */
+.site-bar { display: none; }
+@media screen {
+  .site-bar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 16px; padding: 12px 24px;
+    background: var(--blue-dark); color: #DCE4F5; font: 500 14px Inter, sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+  .site-bar a { color: #fff; text-decoration: none; font-weight: 600; }
+  .site-bar .back:hover { text-decoration: underline; }
+  .site-bar .title { margin-left: auto; opacity: .8; }
+  .site-bar .dl { background: var(--orange); border-radius: 6px; padding: 8px 14px; font-family: Montserrat, sans-serif; font-weight: 700; }
+  .site-bar .dl:hover { background: #C46F1A; }
+}

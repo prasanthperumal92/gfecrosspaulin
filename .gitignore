@@ -27,3 +27,6 @@ desktop.ini
 *.log
 *.tmp
 tmp/
+
+# Assembled website (brochure/tools/package-site.sh)
+_site/

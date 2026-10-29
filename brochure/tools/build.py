@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Build step for brochure/index.html (idempotent).
+"""Build step for brochure/index.html and the website home page index.html (idempotent).
 
 - Fills the sizes table between <!--SIZES:start--> and <!--SIZES:end-->
-  from docs/packinglist.html.
+  from docs/packinglist.html (two half tables in the brochure, one on the website).
 - Inlines each <!--SVG:path--> ... <!--/SVG--> block from the SVG file, so the
   page's web fonts apply to SVG text (fonts don't load inside <img> SVGs).
+  The path is relative to the HTML file.
 Run from anywhere: python3 brochure/tools/build.py
 """
 import pathlib, re
@@ -37,12 +38,16 @@ def table(chunk):
     return "\n".join(out)
 
 
-html_path = ROOT / "brochure/index.html"
-html = html_path.read_text()
-block = "<!--SIZES:start-->\n" + table(rows[:27]) + "\n" + table(rows[27:]) + "\n<!--SIZES:end-->"
-html = re.sub(r"<!--SIZES:start-->.*?<!--SIZES:end-->", lambda _: block, html, flags=re.S)
-html = re.sub(r"<!--SVG:(.*?)-->.*?<!--/SVG-->",
-              lambda m: f"<!--SVG:{m[1]}-->" + (ROOT / "brochure" / m[1]).read_text().strip() + "<!--/SVG-->",
-              html, flags=re.S)
-html_path.write_text(html)
-print("sizes table: 54 rows written; SVGs inlined")
+def build(html_path, tables):
+    html = html_path.read_text()
+    block = "<!--SIZES:start-->\n" + "\n".join(tables) + "\n<!--SIZES:end-->"
+    html = re.sub(r"<!--SIZES:start-->.*?<!--SIZES:end-->", lambda _: block, html, flags=re.S)
+    html = re.sub(r"<!--SVG:(.*?)-->.*?<!--/SVG-->",
+                  lambda m: f"<!--SVG:{m[1]}-->" + (html_path.parent / m[1]).read_text().strip() + "<!--/SVG-->",
+                  html, flags=re.S)
+    html_path.write_text(html)
+
+
+build(ROOT / "brochure/index.html", [table(rows[:27]), table(rows[27:])])
+build(ROOT / "index.html", [table(rows)])
+print("sizes table: 54 rows written; SVGs inlined (brochure and website)")
