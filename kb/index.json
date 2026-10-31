@@ -405,5 +405,77 @@
     "headings": [],
     "sources": [],
     "summary": ""
+  },
+  {
+    "id": "KB-18",
+    "title": "Micropaulin: product and test data",
+    "tags": [
+      "micropaulin",
+      "product",
+      "specifications",
+      "test report",
+      "certificate of analysis",
+      "sizes",
+      "price"
+    ],
+    "updated": "2026-10-31",
+    "file": "micropaulin-product.md",
+    "headings": [
+      "Certificate of Analysis, 200 GSM black/silver (M1, dated 2026-10-31)",
+      "How it differs from Crosspaulin",
+      "Range (M6, price list, 2026-10-31)",
+      "Not known [TBC]"
+    ],
+    "sources": [
+      "M1",
+      "M2",
+      "M3",
+      "M5",
+      "M6"
+    ],
+    "summary": "\"Micropaulin™, multilayer laminated tarpaulin, a product of PANKAJ®\" (M2). Same manufacturer and brand house as Crosspaulin™ ([manufacturer.md](manufacturer.md)); the same disclosure rule applies: never name the manufacturer in buyer material. Grace Ferro is the distributor and exporter. Sources: [`micropaulin/sources.md`](../micropaulin/sources.md)."
+  },
+  {
+    "id": "KB-19",
+    "title": "Micropaulin brochure: brand and design",
+    "tags": [
+      "micropaulin",
+      "brand",
+      "colours",
+      "logo",
+      "images"
+    ],
+    "updated": "2026-10-31",
+    "file": "micropaulin-brand.md",
+    "headings": [
+      "Palette (blue and red sampled from the logo, M2)",
+      "Logo",
+      "Images"
+    ],
+    "sources": [
+      "M2",
+      "M3",
+      "M5"
+    ],
+    "summary": "The logo colours are almost the same as Crosspaulin's (both PANKAJ® brands), so the brochure is deliberately a sibling: Montserrat headings and Inter body, as in Crosspaulin. It is told apart by the banner's motif: yellow diagonal stripes under a blue curve (cover band, page-top strip, contact band)."
+  },
+  {
+    "id": "KB-20",
+    "title": "Micropaulin: open questions",
+    "tags": [
+      "micropaulin",
+      "tbc",
+      "open questions",
+      "owner"
+    ],
+    "updated": "2026-10-31",
+    "file": "micropaulin-open-questions.md",
+    "headings": [],
+    "sources": [
+      "M1",
+      "M3",
+      "M6"
+    ],
+    "summary": ""
   }
 ]

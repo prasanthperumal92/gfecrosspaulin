@@ -1,0 +1,73 @@
+name: Build Micropaulin brochure PDF
+
+# Renders and checks the Micropaulin brochure. It uploads a workflow artifact only:
+# no release or website deploy until the owner decides where the brochure is published.
+on:
+  push:
+    branches: [master]
+    paths:
+      - "micropaulin/index.html"
+      - "micropaulin/styles.css"
+      - "micropaulin/assets/**"
+      - "micropaulin/tools/**"
+      - "brochure/tools/build.py"
+      - "brochure/tools/render.sh"
+      - "brochure/assets/fonts/**"
+      - ".github/workflows/micropaulin.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PDF: output/micropaulin-multilayer-tarpaulin-brochure.pdf
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install poppler-utils
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Set up Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Render PDF
+        env:
+          CHROME: ${{ steps.chrome.outputs.chrome-path }}
+        run: brochure/tools/render.sh micropaulin micropaulin-multilayer-tarpaulin-brochure.pdf
+
+      - name: Verify PDF
+        run: |
+          info="$(pdfinfo "$PDF")"
+          echo "$info"
+          pages=$(awk '/^Pages:/ {print $2}' <<<"$info")
+          bytes=$(stat -c %s "$PDF")
+          [ "$pages" -eq 5 ] || { echo "::error::Expected 5 pages, got $pages"; exit 1; }
+          [ "$bytes" -lt 10485760 ] || { echo "::error::PDF is $bytes bytes (limit 10 MB)"; exit 1; }
+          grep -qE '^Page size:.*\(A4\)' <<<"$info" || { echo "::error::Page size is not A4"; exit 1; }
+          # The manufacturer is never named (its website and phone are baked into the source listing images),
+          # and the price list (docs/micropaulin/) is internal: no prices, rates or ₹ in buyer material
+          if grep -rniE "malson|U65999|CM/L|IN122639|pankajplastics|97485|₹|INR|/kg|/ ?sq\.?(m|ft)|rate per|price per" micropaulin/index.html; then
+            echo "::error::Manufacturer or internal details found in the Micropaulin brochure"; exit 1
+          fi
+          # Crosspaulin's terms and certifications must not carry over to Micropaulin
+          if grep -niE "24 MT|35.40 days|14611|BIS|3926|Type HN" micropaulin/index.html; then
+            echo "::error::Crosspaulin-only terms or an unsupported standard found in the Micropaulin brochure"; exit 1
+          fi
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: micropaulin-multilayer-tarpaulin-brochure
+          path: |
+            ${{ env.PDF }}
+            micropaulin/review/pages/*.png

@@ -16,10 +16,11 @@ Both are static HTML/CSS. The brochure is printed to PDF with headless Chrome.
 | `brochure/tools/` | `build.py` (sizes table + SVG inlining, for both pages), `render.sh` (PDF + page PNGs for any brochure folder), `package-site.sh` (assembles the public website in `_site/`), `gen_image.py` (Gemini images) |
 | `brochure/sources.md` | Where every number and claim in the brochure comes from |
 | `brochure/review/` | Design review reports and page snapshots |
-| `kb/` | Knowledge base: specs, standards, terms, brand, open questions. Purity pages are `kb/purity-*.md`. Start at `kb/INDEX.md` |
+| `kb/` | Knowledge base: specs, standards, terms, brand, open questions. Purity pages are `kb/purity-*.md`, Micropaulin pages `kb/micropaulin-*.md`. Start at `kb/INDEX.md` |
 | `docs/` | Source documents: manufacturer information sheet, ISO certificate, old brochure, packing list |
 | `images/` | Original owner-supplied photos |
 | `purity/` | Purity PVC tarpaulin brochure (6 pages): `index.html`, `styles.css`, `assets/`, `tools/build.py`, `sources.md`, `review/` |
+| `micropaulin/` | Micropaulin™ multilayer tarpaulin brochure (5 pages), same structure as `purity/`. Originals are in `docs/micropaulin/` and `images/micropaulin/` |
 | `output/` | The rendered PDFs |
 
 ## Generating the PDF (instructions for an agent)
@@ -85,3 +86,17 @@ brochure/tools/render.sh purity purity-pvc-tarpaulin-brochure.pdf   # -> output/
 - **`docs/purity/price-list-internal.png` is internal.** No price, rate, GST or ₹ may appear in `purity/`. CI (`.github/workflows/purity.yml`) fails if one does, and also if Crosspaulin's terms (24 MT, 35–40 days, IS 14611, its HS code) appear.
 - Every claim is listed in `purity/sources.md`; unknowns are in `kb/purity-open-questions.md`. The design is deliberately distinct from Crosspaulin (graphite and yellow, Barlow Condensed headings; see `kb/purity-brand.md`). The palette is a placeholder until the Purity logo arrives.
 - The Purity brochure is not part of the crosspaulin.com website or `package-site.sh`.
+
+## Micropaulin brochure
+
+A third, 5-page A4 brochure for **Micropaulin™**, a multilayer laminated polyethylene tarpaulin, also "a product of PANKAJ®". Grace Ferro is the exporter.
+
+```bash
+brochure/tools/render.sh micropaulin micropaulin-multilayer-tarpaulin-brochure.pdf   # -> output/micropaulin-multilayer-tarpaulin-brochure.pdf
+```
+- The test data on pages 1 and 3 comes from the manufacturer's Certificate of Analysis for 200 GSM (`docs/micropaulin/`). That file is on the manufacturer's letterhead: never publish it.
+- The same disclosure rule as Crosspaulin applies: never name the manufacturer. The source listing photos in `images/micropaulin/` have the manufacturer's website and phone number baked in, so use only crops without them. CI (`.github/workflows/micropaulin.yml`) fails on those, and on Crosspaulin-only terms or an IS 14611/BIS claim (Micropaulin's MD tensile is below the IS 14611 minimum).
+- Grades and the 25 sheet sizes live in `micropaulin/tools/build.py`, which generates the grade cards and the size table (with calculated weights) between `<!--GRADES-->` and `<!--SIZES-->` markers. Do not edit those blocks by hand.
+- **`docs/micropaulin/price-list-internal.png` is internal.** No price, rate or ₹ may appear in `micropaulin/`; CI fails if one does.
+- MOQ, lead time and roll dimensions are unknown and are not printed; see `kb/micropaulin-open-questions.md`. Every claim is listed in `micropaulin/sources.md`. Design notes are in `kb/micropaulin-brand.md`.
+- The Micropaulin brochure is not part of the crosspaulin.com website or `package-site.sh`.

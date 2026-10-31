@@ -1,0 +1,173 @@
+/* Micropaulin shares the PANKAJ family look with Crosspaulin (Montserrat + Inter, logo blue and red),
+   and takes its own motif from the Micropaulin banner: yellow diagonal stripes under a blue curve. */
+@font-face { font-family: Montserrat; font-weight: 600; src: url(../brochure/assets/fonts/montserrat-600.woff2) format("woff2"); }
+@font-face { font-family: Montserrat; font-weight: 700; src: url(../brochure/assets/fonts/montserrat-700.woff2) format("woff2"); }
+@font-face { font-family: Montserrat; font-weight: 800; src: url(../brochure/assets/fonts/montserrat-800.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 400; src: url(../brochure/assets/fonts/inter-400.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 500; src: url(../brochure/assets/fonts/inter-500.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 600; src: url(../brochure/assets/fonts/inter-600.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 700; src: url(../brochure/assets/fonts/inter-700.woff2) format("woff2"); }
+
+/* Blue and red sampled from the Micropaulin logo (kb/micropaulin-brand.md). Yellow is the banner and product colour.
+   Blue is also hard-coded in assets/generated/icon-*.svg and app-*.svg. */
+:root {
+  --blue: #294A96;
+  --navy: #172C5E;
+  --red: #E12228;
+  --red-text: #C8191F;
+  --yellow: #FFD31A;
+  --yellow-deep: #F4C400;
+  --ink: #141B2D;
+  --muted: #566074;
+  --paper: #F1F4F9;
+  --line: #DAE0EA;
+  --stripes: repeating-linear-gradient(-55deg, var(--yellow) 0 3.2mm, var(--yellow-deep) 3.2mm 4.4mm);
+}
+
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font: 400 10pt/1.5 Inter, sans-serif; color: var(--ink); background: #888; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.page {
+  position: relative; width: 210mm; height: 297mm; overflow: hidden;
+  background: #fff; margin: 0 auto; page-break-after: always; break-after: page;
+  padding: 25mm 16mm 20mm;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+@media screen { .page { margin: 10mm auto; box-shadow: 0 2px 12px rgba(0,0,0,.25); } }
+
+h1, h2, h3 { font-family: Montserrat, sans-serif; margin: 0; color: var(--navy); }
+h2 { font-size: 21pt; font-weight: 800; line-height: 1.12; letter-spacing: -.01em; }
+h3 { font-size: 11pt; font-weight: 700; line-height: 1.25; }
+p { margin: 0 0 3mm; }
+.kicker { font: 700 8pt/1 Montserrat, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--red-text); margin-bottom: 2.5mm; }
+.lead { font-size: 10.5pt; line-height: 1.55; color: var(--muted); margin-top: 3.5mm; }
+.small { font-size: 8.5pt; line-height: 1.45; color: var(--muted); }
+.note { font-size: 8pt; color: var(--muted); margin-top: 2mm; }
+
+/* inner pages: a thin stripe strip, running header and footer */
+.page:not(.cover)::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3mm; background: var(--stripes); border-bottom: .7mm solid var(--blue); }
+.run { position: absolute; left: 16mm; right: 16mm; top: 10mm; display: flex; justify-content: space-between; align-items: center;
+  font: 600 8pt/1 Montserrat, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.run b { color: var(--navy); font-weight: 700; }
+.run .sec { display: flex; align-items: center; gap: 2.5mm; }
+.run .sec b { background: var(--blue); color: #fff; border-radius: 1mm; padding: 1.1mm 1.7mm .9mm; }
+.foot {
+  position: absolute; left: 16mm; right: 16mm; bottom: 9mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 2.5mm;
+}
+
+/* ---------- cover ---------- */
+.cover { padding: 0; }
+.cover .exporter { position: absolute; top: 12mm; left: 16mm; }
+.cover .exporter img { height: 12mm; display: block; }
+.cover .edition { position: absolute; top: 16.5mm; right: 16mm; font: 700 8.5pt Montserrat, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.cover .title { position: absolute; left: 16mm; right: 16mm; top: 40mm; }
+.cover .logo { width: 92mm; display: block; margin-left: -1.5mm; }
+.cover h1 { font-size: 30pt; font-weight: 800; line-height: 1.08; letter-spacing: -.015em; margin-top: 9mm; max-width: 150mm; }
+.cover h1 em { font-style: normal; color: var(--red); }
+.cover .sub { font-size: 11pt; line-height: 1.55; margin-top: 4.5mm; max-width: 125mm; color: var(--muted); }
+.cover .badges { position: absolute; right: 16mm; top: 94mm; display: flex; gap: 4mm; }
+.cover .badges img { width: 30mm; height: 30mm; display: block; }
+/* the banner motif: white bulges down into a yellow striped band, edged by a blue curve */
+.cover .band { position: absolute; left: 0; right: 0; top: 130mm; height: 120mm; background: var(--stripes); overflow: hidden; }
+.cover .band::before { content: ""; position: absolute; left: -15%; right: -15%; top: -34mm; height: 52mm; background: #fff;
+  border-bottom: 1.6mm solid var(--blue); border-radius: 0 0 50% 50%; }
+.cover .range { position: absolute; left: 16mm; bottom: 9mm; width: 62mm; display: grid; grid-template-columns: 1fr 1fr; gap: 2mm;
+  background: #fff; border-radius: 2mm; padding: 4mm; box-shadow: 0 1.5mm 4mm rgba(20,27,45,.18); z-index: 1; }
+.cover .range b { grid-column: 1 / -1; font: 700 8pt Montserrat, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--red-text); }
+.cover .range b + span ~ b { margin-top: 2mm; }
+.cover .range span { background: var(--navy); color: #fff; border-radius: 1mm; padding: 1.6mm 2.5mm; font: 800 15pt/1 Montserrat, sans-serif; }
+.cover .range small { font: 600 7pt Montserrat, sans-serif; letter-spacing: .08em; color: var(--yellow); margin-left: 1mm; }
+.cover .range em { grid-column: 1 / -1; font-style: normal; font: 800 12.5pt/1.1 Montserrat, sans-serif; color: var(--navy); margin-top: -1mm; }
+.cover .product { position: absolute; right: 16mm; bottom: 6mm; height: 96mm; filter: drop-shadow(0 2.5mm 3mm rgba(20,27,45,.28)); }
+.cover .proof { position: absolute; left: 0; right: 0; top: 250mm; height: 47mm; background: var(--navy); color: #fff;
+  display: grid; grid-template-columns: repeat(3, 1fr); padding: 7mm 16mm 0; column-gap: 6mm; }
+.cover .proof div { font-size: 8.5pt; line-height: 1.4; color: #C5CEE2; border-top: .6mm solid var(--yellow); padding-top: 2.5mm; }
+.cover .proof b { display: block; font: 800 20pt/1.05 Montserrat, sans-serif; color: #fff; margin-bottom: 1mm; }
+.cover .proof-note { position: absolute; left: 16mm; right: 16mm; top: 278mm; font-size: 7.5pt; color: #95A2BF; }
+.cover .bottom { position: absolute; left: 16mm; right: 16mm; bottom: 6mm; display: flex; justify-content: space-between; font-size: 8pt; color: #C5CEE2; }
+
+/* ---------- exporter + product + construction ---------- */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 9mm; }
+.reg-list { display: flex; flex-wrap: wrap; gap: 1.5mm; margin: 2mm 0 0; padding: 0; list-style: none; }
+.reg-list li { background: var(--paper); border-radius: 1mm; padding: .8mm 2.4mm; font-size: 7.8pt; font-weight: 600; color: var(--navy); }
+.divider { height: 1px; background: var(--line); margin: 8mm 0 7mm; }
+.tech { display: grid; grid-template-columns: 1fr 56mm; gap: 8mm; align-items: center; margin-top: 4mm; }
+.diagram svg { width: 100%; height: auto; display: block; }
+.tech figure { margin: 0; }
+.tech figure img { width: 100%; display: block; border-radius: 2mm; }
+.tech figcaption { font-size: 8pt; color: var(--muted); margin-top: 2mm; }
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-top: 8mm; }
+.facts div { background: var(--paper); border-top: 1mm solid var(--blue); border-radius: 0 0 1.5mm 1.5mm; padding: 3mm 3.5mm 3.5mm; font-size: 8.5pt; color: var(--muted); }
+.facts b { display: block; font: 800 15pt/1.1 Montserrat, sans-serif; color: var(--navy); margin-bottom: .8mm; }
+
+/* ---------- features + test data ---------- */
+.adv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7mm 7mm; margin-top: 7mm; }
+.adv .item { display: grid; grid-template-columns: 11mm 1fr; gap: 3mm; align-items: start; }
+.adv img { width: 11mm; height: 11mm; padding: 1.8mm; background: var(--paper); border-radius: 50%; }
+.adv h3 { font-size: 10pt; margin: .6mm 0 1mm; }
+.adv p { font-size: 8.6pt; line-height: 1.42; color: var(--muted); margin: 0; }
+.page h3.sub { margin-top: 9mm; font-size: 12.5pt; }
+.u { font-family: Inter, sans-serif; font-weight: 500; font-size: 9.5pt; color: var(--muted); margin-left: 2mm; }
+table { border-collapse: collapse; width: 100%; }
+.spec { margin-top: 3.5mm; font-size: 9pt; font-variant-numeric: tabular-nums; }
+.spec th, .spec td { padding: 1.9mm 3mm; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.spec thead th { background: var(--blue); color: #fff; font: 600 8.5pt Montserrat, sans-serif; letter-spacing: .02em; }
+.spec thead th:first-child { border-radius: 1.5mm 0 0 0; }
+.spec thead th:last-child { border-radius: 0 1.5mm 0 0; }
+.spec tbody th { font-weight: 600; width: 48mm; color: var(--ink); }
+.spec td { color: var(--ink); }
+.spec td:nth-child(2) { color: var(--muted); width: 20mm; }
+.spec td i { font-style: normal; color: var(--muted); }
+.ref { margin-top: 6mm; background: var(--paper); border-left: 1.6mm solid var(--yellow-deep); border-radius: 0 1.5mm 1.5mm 0; padding: 4mm 5mm; }
+.ref h3 { font-size: 10.5pt; margin-bottom: 1.2mm; }
+.ref p { margin: 0; }
+
+/* ---------- grades + sizes ---------- */
+.grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-top: 5mm; }
+.grade { background: var(--paper); border-radius: 1.5mm; overflow: hidden; }
+.grade .gsm { background: var(--blue); color: #fff; font: 800 19pt/1 Montserrat, sans-serif; padding: 3mm 3.5mm 2.6mm; }
+.grade .gsm small { font: 700 7.5pt Montserrat, sans-serif; letter-spacing: .1em; color: var(--yellow); margin-left: 1mm; }
+.grade .bar { height: 1.4mm; background: #C9D3E6; }
+.grade .bar span { display: block; height: 100%; background: var(--yellow-deep); }
+.grade dl { margin: 0; padding: 2.4mm 3.5mm 1mm; font-size: 8pt; }
+.grade dt { color: var(--muted); font: 700 6.8pt Montserrat, sans-serif; text-transform: uppercase; letter-spacing: .1em; }
+.grade dd { margin: 0 0 1.6mm; color: var(--ink); font-weight: 500; }
+.sizes { margin-top: 5mm; font-size: 8.2pt; font-variant-numeric: tabular-nums; }
+.sizes th, .sizes td { padding: .62mm 2mm; text-align: center; border-bottom: 1px solid var(--line); }
+.sizes thead th { background: var(--navy); color: #fff; font: 600 8pt Montserrat, sans-serif; padding: 1.8mm 2mm; }
+.sizes thead tr.sup th { background: var(--yellow); color: var(--navy); font-weight: 700; font-size: 7.5pt; padding: 1.1mm; }
+.sizes thead tr.sup th:first-child { background: none; }
+.sizes tbody tr:nth-child(even) { background: var(--paper); }
+.sizes td.ft { font-weight: 600; color: var(--ink); text-align: left; white-space: nowrap; }
+.sizes td.m { color: var(--muted); text-align: left; white-space: nowrap; }
+.sizes td.m i { font-style: normal; color: #8A93A5; }
+.sizes thead th:nth-child(-n+3) { text-align: left; }
+
+/* ---------- applications + ordering + contact ---------- */
+.apps-wrap { display: grid; grid-template-columns: 1fr 1fr 1.05fr; gap: 5mm; margin-top: 5mm; }
+.ph { margin: 0; position: relative; height: 62mm; border-radius: 2mm; overflow: hidden; }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 6mm 3.5mm 2.5mm; font: 700 9pt Montserrat, sans-serif; color: #fff;
+  background: linear-gradient(transparent, rgba(16,24,44,.8)); }
+.apps { display: grid; grid-template-rows: repeat(4, 1fr); gap: 2mm; }
+.apps .item { display: grid; grid-template-columns: 10mm 1fr; gap: 3mm; align-items: center; }
+.apps img.ic { width: 10mm; height: 10mm; padding: 1.6mm; background: var(--paper); border-radius: 50%; }
+.apps h3 { font-size: 9.5pt; margin: 0; }
+.apps p { font-size: 8.2pt; color: var(--muted); margin: 0; line-height: 1.3; }
+.terms { margin-top: 1mm; font-size: 8.8pt; border-top: .6mm solid var(--navy); }
+.terms th, .terms td { text-align: left; vertical-align: top; padding: 1.9mm 3mm 1.9mm 0; border-bottom: 1px solid var(--line); }
+.terms th { width: 40mm; font: 700 8.8pt Montserrat, sans-serif; color: var(--navy); }
+.terms td { color: var(--muted); }
+.contact { position: absolute; left: 0; right: 0; bottom: 0; height: 80mm; background: var(--navy); color: #fff; padding: 11mm 16mm 10mm;
+  display: grid; grid-template-columns: 1fr 34mm; gap: 10mm; }
+.contact::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3mm; background: var(--stripes); }
+.contact h2 { color: #fff; font-size: 19pt; }
+.contact .lines { display: grid; grid-template-columns: 1fr 1fr; gap: 1mm 8mm; margin-top: 3mm; font-size: 9pt; line-height: 1.5; color: #DCE3F1; }
+.contact .lines b { display: block; color: var(--yellow); font: 700 7.5pt Montserrat, sans-serif; letter-spacing: .14em; text-transform: uppercase; margin-top: 2.5mm; }
+.contact .qr { background: #fff; padding: 2.5mm; border-radius: 1.5mm; align-self: center; text-align: center; color: var(--navy); font: 700 7pt Montserrat, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.contact .qr img { width: 100%; display: block; margin-bottom: 1.5mm; }
+.contact .legal { position: absolute; left: 16mm; right: 16mm; bottom: 5mm; font-size: 7.5pt; color: #95A2BF; }

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 20 790 360" font-family="Inter, sans-serif">
+  <!-- Exploded view of a multilayer laminated polyethylene sheet, 200 GSM black/silver grade (C1).
+       Illustrative, not to scale. The number of inner layers is not stated by the manufacturer. -->
+  <path d="M40 322L360 322L460 242L140 242z" fill="#2B2D31"/><path d="M40 322h320v12H40z" fill="#121315"/><path d="M360 322l100 -80v12l-100 80z" fill="#1C1D20"/>
+  <path d="M40 232L360 232L460 152L140 152z" fill="#E6EAF2"/><path d="M40 232h320v12H40z" fill="#B9C2D2"/><path d="M360 232l100 -80v12l-100 80z" fill="#CDD4E0"/>
+  <path d="M60 216h320M75 204h320M90 192h320M105 180h320M120 168h320" stroke="#C7CFDD" stroke-width="2.5" clip-path="url(#mid)"/>
+  <clipPath id="mid"><path d="M40 232L360 232L460 152L140 152z"/></clipPath>
+  <path d="M40 142L360 142L460 62L140 62z" fill="#B8BEC8"/><path d="M170 82L420 82L400 98L150 98z" fill="#fff" opacity=".45"/><path d="M40 142h320v12H40z" fill="#8C939F"/><path d="M360 142l100 -80v12l-100 80z" fill="#A1A8B3"/>
+  <g stroke="#6B7280" stroke-width="1.2" fill="none"><path d="M430 102h70M430 192h70M430 282h70"/></g>
+  <g fill="#6B7280"><circle cx="430" cy="102" r="3"/><circle cx="430" cy="192" r="3"/><circle cx="430" cy="282" r="3"/></g>
+  <g fill="#111827">
+    <text x="510" y="98" font-size="20" font-weight="700">Outer film</text>
+    <text x="510" y="118" font-size="15.5" fill="#4B5563">silver face</text>
+    <text x="510" y="188" font-size="20" font-weight="700">Inner layers</text>
+    <text x="510" y="208" font-size="15.5" fill="#4B5563">polyethylene film, laminated</text>
+    <text x="510" y="278" font-size="20" font-weight="700">Outer film</text>
+    <text x="510" y="298" font-size="15.5" fill="#4B5563">black face</text>
+  </g>
+  <text x="40" y="368" font-size="14" fill="#6B7280">Illustrative exploded view of the black/silver grade, not to scale.</text>
+</svg>
